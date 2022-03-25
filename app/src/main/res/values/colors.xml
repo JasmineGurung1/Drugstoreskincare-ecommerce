@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="Light_pinK">#DCABBB</color>
+    <color name="PinK">#FAD2E0</color>
+    <color name="pinK">#dfcdd3</color>
+    <color name="White">#FFFF</color>
+    <color name="offWhite">#EFE3DB</color>
+    <color name="Black">#2B2A2A</color>
+    <color name="Cream">#B7A476</color>
+    <color name="black">#FF000000</color>
+    <color name="grey_divider">#E7E8EC</color>
+    <color name="grey">#9C9898</color>
+    <color name="lightgrey">#DCD9D9</color>
+
+
+
+    <!--    declared colors-->
+    <color name="line">#C3C0C0</color>
+    //changing color of status bar//
+    <color name="statusBar">#FFFFFF</color>
+
+</resources>

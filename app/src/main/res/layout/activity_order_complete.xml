@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".checkOut.orderComplete.OrderCompleteActivity">
+
+
+    <TextView
+        android:id="@+id/backTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:drawableStart="@drawable/ic_close"
+        android:gravity="center_horizontal"
+        android:text="Order Successfull"
+        android:textColor="@color/Light_pinK"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_complete" />
+
+    <TextView
+        android:id="@+id/confirmTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image"
+        android:gravity="center_horizontal"
+        android:text="Order Confirmed!"
+        android:textColor="@color/Light_pinK"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/descTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/confirmTV"
+        android:gravity="center_horizontal"
+        android:paddingStart="@dimen/normal_spacing"
+        android:paddingEnd="@dimen/normal_spacing"
+        android:text="Sit back and relax your order will be on your door step after 2-3 working days!"
+        android:textColor="@color/grey"
+        android:textSize="16sp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/shopMoreTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/descTV"
+        android:layout_marginStart="@dimen/large_spacing"
+        android:layout_marginTop="@dimen/large_spacing"
+        android:layout_marginEnd="@dimen/large_spacing"
+        android:layout_marginBottom="@dimen/large_spacing"
+        android:background="@drawable/box_color"
+        android:gravity="center_horizontal"
+        android:padding="@dimen/medium_spacing"
+        android:text=" Do Shop More"
+        android:textColor="@color/White"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
+
+
