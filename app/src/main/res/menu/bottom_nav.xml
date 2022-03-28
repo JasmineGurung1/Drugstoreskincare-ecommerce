@@ -19,8 +19,8 @@
         android:title="@string/cart" />
 
     <item
-        android:id="@+id/profileMenu"
-        android:icon="@drawable/user"
-        android:title="@string/profile" />
+        android:id="@+id/SettingMenu"
+        android:icon="@drawable/ic_setting"
+        android:title="Setting" />
 
 </menu>

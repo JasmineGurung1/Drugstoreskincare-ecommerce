@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Profile.ProfileActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/Light_pinK">
+
+
+            <ImageView
+                android:id="@+id/ProfileBackIV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_spacing"
+                android:layout_marginTop="@dimen/large_spacing"
+                android:layout_marginEnd="@dimen/large_spacing"
+                android:layout_marginBottom="@dimen/large_spacing"
+                android:elevation="20dp"
+                android:src="@drawable/ic_back"
+                app:tint="@color/White" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Edit Profile"
+                android:textStyle="bold"
+                android:textColor="@color/White"
+                android:textSize="18sp"/>
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileIV"
+            android:layout_width="157dp"
+            android:layout_height="106dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="80dp"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/person"
+            app:civ_border_color="@color/Light_pinK"
+            app:civ_circle_background_color="@color/White" />
+
+        <TextView
+            android:id="@+id/profileNameTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:lines="2"
+            android:text="Jasmine Gurung"
+            android:textColor="@color/Light_pinK"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/White" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/person"
+            app:tint="@color/Light_pinK" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Full Name"
+            android:layout_marginLeft="7dp"
+            android:textColor="@color/grey"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jasmine Gurung"
+            android:layout_marginLeft="20dp"
+            android:textSize="16dp"/>
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_email"
+            app:tint="@color/Light_pinK" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Email"
+            android:textStyle="bold"
+            android:layout_marginLeft="7dp"
+            android:textColor="@color/grey"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="jasmine@gmail.com"
+            android:layout_marginLeft="55dp"
+            android:textSize="16dp"/>
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_phone"
+            app:tint="@color/Light_pinK" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Phone No:"
+            android:layout_marginLeft="7dp"
+            android:textColor="@color/grey"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9806714523"
+            android:layout_marginLeft="20dp"
+            android:textSize="16dp"/>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_calendar"
+            app:tint="@color/Light_pinK" />
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="DOB"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/grey"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="19/March/2001"
+            android:layout_marginLeft="25dp"
+            android:textSize="16dp"/>
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+
+
+    <LinearLayout
+        android:id="@+id/editLL"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/box_color"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/editTV"
+            android:layout_width="190dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="-20dp"
+            android:drawableLeft="@drawable/ic_edit"
+            android:gravity="center"
+            android:paddingStart="50dp"
+            android:text="Edit Profile"
+            android:textColor="@color/White"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/changePasswordLL"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/box_color"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/changepwrdTV"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="Change Password"
+            android:textColor="@color/White"
+            android:textSize="16sp"
+            android:drawableLeft="@drawable/ic_padlock"
+            android:paddingStart="50dp"
+            android:layout_marginLeft="-20dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+

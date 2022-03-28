@@ -13,41 +13,53 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Drugstoreskincare"
         tools:replace="andriod:label">
-    <activity
-        android:name=".checkOut.orderComplete.OrderCompleteActivity"
-        android:exported="false" />
-    <activity
-        android:name=".checkOut.address.AddressActivity"
-        android:exported="false" />
-    <activity
-        android:name=".checkOut.CheckOutActivity"
-        android:exported="false"
-        android:theme="@style/Theme.HomeTheme"/>
-    <activity
-        android:name=".categoryPage.CategoryActivity"
-        android:exported="false" />
-    <activity
-        android:name=".singleProductPage.SingleProductActivity"
-        android:exported="false"
-        android:theme="@style/Theme.HomeTheme" />
-    <activity
-        android:name=".splashScreen.SplashScreenActivity"
-        android:exported="true"
-        android:theme="@style/Theme.HomeTheme">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+        <activity
+            android:name=".Admin.Products.ListProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.AddCategory.ListCategoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.AdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Profile.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".checkOut.orderComplete.OrderCompleteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".checkOut.address.AddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".checkOut.CheckOutActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HomeTheme" />
+        <activity
+            android:name=".categoryPage.CategoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".singleProductPage.SingleProductActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HomeTheme" />
+        <activity
+            android:name=".splashScreen.SplashScreenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.HomeTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
-    <activity
-        android:name=".userAccount.UserAccountActivity"
-        android:exported="false"
-        android:theme="@style/Theme.HomeTheme"
-        />
-    <activity
-        android:name=".Home.MainActivity"
-        android:exported="true"/>
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".userAccount.UserAccountActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HomeTheme" />
+        <activity
+            android:name=".Home.MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.HomeTheme" />
     </application>
+
 </manifest>

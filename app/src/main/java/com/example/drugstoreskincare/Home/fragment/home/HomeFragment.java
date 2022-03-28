@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.drugstoreskincare.Home.fragment.home.adapters.CategoryAdapter;
@@ -31,6 +32,7 @@ import com.example.drugstoreskincare.api.response.SliderResponse;
 import com.example.drugstoreskincare.categoryPage.CategoryActivity;
 import com.example.drugstoreskincare.singleProductPage.SingleProductActivity;
 import com.example.drugstoreskincare.utils.DataHolder;
+import com.example.drugstoreskincare.utils.SharedPrefUtils;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -38,6 +40,7 @@ import com.smarteist.autoimageslider.SliderView;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -46,6 +49,10 @@ public class HomeFragment extends Fragment {
     RecyclerView allProductsRV, categoryRV;
     ProgressBar loadingProgress;
     SliderView imageSlider;
+    TextView userNameTV;
+    CircleImageView profileImage;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,13 +68,19 @@ public class HomeFragment extends Fragment {
         categoryRV = view.findViewById(R.id.categoryRV);
         loadingProgress = view.findViewById(R.id.loadingProgress);
         imageSlider = view.findViewById(R.id.imageSlider);
+        userNameTV = view.findViewById(R.id.userNameTV);
+        profileImage = view.findViewById(R.id.profileImage);
         serverCall();
         getCategoriesOnline();
         getSliders();
         //setClickListeners();
+        getusername();
 
     }
 
+    private void getusername() {
+        userNameTV.setText(SharedPrefUtils.getSting(getActivity(),"nk"));
+    }
 
 
     private void getSliders() {

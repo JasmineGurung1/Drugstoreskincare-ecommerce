@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.drugstoreskincare.Home.fragment.CartFragment;
 import com.example.drugstoreskincare.Home.fragment.ProfileFragment;
+import com.example.drugstoreskincare.Home.fragment.SettingFragment;
 import com.example.drugstoreskincare.Home.fragment.WishListFragment;
 import com.example.drugstoreskincare.Home.fragment.home.HomeFragment;
 import com.example.drugstoreskincare.R;
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     HomeFragment homeFragment;
     CartFragment cartFragment;
     WishListFragment wishListFragment;
-    ProfileFragment profileFragment;
+    SettingFragment settingFragment;
     Fragment currentFragment;
 
     @Override
@@ -61,10 +62,10 @@ public class MainActivity extends AppCompatActivity {
 
                 }
 
-                else if (item.getTitle().equals(getString(R.string.profile))) {
-                    if (profileFragment == null)
-                        profileFragment = new ProfileFragment();
-                    changeFragment(profileFragment);
+                else if (item.getTitle().equals("Setting")) {
+                    if (settingFragment == null)
+                        settingFragment = new SettingFragment();
+                    changeFragment(settingFragment);
                     return true;
                 }
                 return false;
