@@ -38,7 +38,7 @@ public class CartFragment extends Fragment {
     List<Product> products;
     TextView totalPriceTv;
     SwipeRefreshLayout swipeRefresh;
-    LinearLayout addToCartLL;
+    LinearLayout orderLL;
     AllProductResponse allProductResponse;
     ImageView emptyCartIV;
 
@@ -53,10 +53,10 @@ public class CartFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         allProductRV = view.findViewById(R.id.allProductRV);
         totalPriceTv = view.findViewById(R.id.totalPriceTv);
-        addToCartLL = view.findViewById(R.id.addToCartLL);
+        orderLL = view.findViewById(R.id.orderLL);
         swipeRefresh = view.findViewById(R.id.swipeRefresh);
         emptyCartIV = view.findViewById(R.id.emptyCartIV);
-        addToCartLL.setOnClickListener(new View.OnClickListener() {
+        orderLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (allProductResponse != null && allProductResponse.getProducts().size() > 0) {
@@ -77,6 +77,7 @@ public class CartFragment extends Fragment {
     }
 
     private void getCartItems() {
+        // load 
         String key = SharedPrefUtils.getSting(getActivity(), "apk");
         Call<AllProductResponse> cartItemsCall = ApiClient.getClient().getMyCart(key);
         cartItemsCall.enqueue(new Callback<AllProductResponse>() {
@@ -109,9 +110,9 @@ public class CartFragment extends Fragment {
 
     private void showEmptyLayout() {
         emptyCartIV.setVisibility(View.VISIBLE);
-        addToCartLL.setVisibility(View.GONE);
+        orderLL.setVisibility(View.GONE);
     }
-
+//  delete cart item
     private void loadCartList() {
         allProductRV.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
@@ -166,4 +167,5 @@ public class CartFragment extends Fragment {
 
     }
 }
+
 

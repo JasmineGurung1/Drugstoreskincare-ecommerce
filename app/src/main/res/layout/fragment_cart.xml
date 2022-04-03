@@ -19,9 +19,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="My Cart"
+                android:text="MY CART"
                 android:textColor="@color/White"
-                android:textSize="20sp" />
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
 
 
         </androidx.appcompat.widget.Toolbar>
@@ -55,7 +57,7 @@
 
 
             <LinearLayout
-                android:id="@+id/addToCartLL"
+                android:id="@+id/orderLL"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
                 android:layout_alignParentBottom="true"

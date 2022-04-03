@@ -16,7 +16,7 @@
         <com.smarteist.autoimageslider.SliderView
             android:id="@+id/imageSlider"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="350dp"
             app:sliderAnimationDuration="600"
             app:sliderAutoCycleDirection="back_and_forth"
             app:sliderAutoCycleEnabled="true"
@@ -50,6 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/ImageRL"
+        android:layout_above="@id/cartLL"
         app:cardCornerRadius="@dimen/margin_twenty">
 
         <ScrollView
@@ -183,9 +184,9 @@
 
 
         <LinearLayout
-            android:id="@+id/wishlisttLL"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:id="@+id/addwishlisttLL"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginStart="@dimen/normal_spacing"
             android:layout_marginTop="14dp"
             android:layout_marginEnd="@dimen/normal_spacing"
@@ -196,7 +197,7 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@drawable/wishlist"
+                android:src="@drawable/ic_wishlist"
                 app:tint="@color/Light_pinK" />
         </LinearLayout>
 

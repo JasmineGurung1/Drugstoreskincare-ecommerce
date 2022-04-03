@@ -14,17 +14,44 @@
         android:theme="@style/Theme.Drugstoreskincare"
         tools:replace="andriod:label">
         <activity
+            android:name=".Setting.ContactUsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HomeTheme"/>
+        <activity
+            android:name=".Search.SearchActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HomeTheme" />
+        <activity
+            android:name=".Setting.AboutUsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HomeTheme" />
+        <activity
+            android:name=".Setting.TermsAndConditionActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HomeTheme" />
+        <activity
+            android:name=".Admin.addProduct.SelectCategoryActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HomeTheme" />
+        <activity
+            android:name=".Admin.addProduct.AddProductActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HomeTheme" />
+        <activity
             android:name=".Admin.Products.ListProductActivity"
             android:exported="false" />
         <activity
             android:name=".Admin.AddCategory.ListCategoryActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.HomeTheme" />
         <activity
             android:name=".Admin.AdminActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.HomeTheme" />
         <activity
-            android:name=".Profile.ProfileActivity"
-            android:exported="false" />
+            android:name=".Setting.ProfileActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HomeTheme" />
         <activity
             android:name=".checkOut.orderComplete.OrderCompleteActivity"
             android:exported="false" />
@@ -61,5 +88,7 @@
             android:exported="true"
             android:theme="@style/Theme.HomeTheme" />
     </application>
+
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
 </manifest>

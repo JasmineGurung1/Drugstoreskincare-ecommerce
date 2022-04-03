@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/mainLL"
+    android:id="@+id/WishListMainLL"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_centerInParent="true"
@@ -15,7 +15,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/productIV"
+            android:id="@+id/WishProductIV"
             android:layout_width="90dp"
             android:layout_height="100dp"
             android:scaleType="centerCrop"
@@ -35,7 +35,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/productNameTV"
+                android:id="@+id/WishProductNameTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -45,7 +45,7 @@
                 android:textStyle="bold"/>
 
             <ImageView
-                android:id="@+id/removeCartIV"
+                android:id="@+id/WishRemoveIV"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/ic_delete"
@@ -61,7 +61,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/oldPriceTV"
+                android:id="@+id/WishOldPriceTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:foreground="@drawable/strike"
@@ -72,7 +72,7 @@
 
             <TextView
 
-                android:id="@+id/discountPriceTV"
+                android:id="@+id/WishDiscountPriceTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"

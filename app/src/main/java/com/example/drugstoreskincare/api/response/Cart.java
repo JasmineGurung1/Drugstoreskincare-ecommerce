@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 
-public class CartItem implements Serializable {
+public class Cart implements Serializable {
     @SerializedName("id")
     @Expose
     private Integer id;

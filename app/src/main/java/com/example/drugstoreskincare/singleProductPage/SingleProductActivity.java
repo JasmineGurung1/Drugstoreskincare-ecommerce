@@ -37,7 +37,7 @@ public class SingleProductActivity extends AppCompatActivity {
     ProgressBar addingCartPR;
     ImageView backIV, plusIV, minusIV;
     TextView name, price, desc, oldPrice, quantityTV;
-    LinearLayout addToCartLL;
+    LinearLayout addToCartLL, addwishlisttLL;
     int quantity = 1;
     boolean isAdding = false;
 
@@ -58,6 +58,7 @@ public class SingleProductActivity extends AppCompatActivity {
         oldPrice = findViewById(R.id.OldPriceTV);
         addToCartLL = findViewById(R.id.addToCartLL);
         addingCartPR = findViewById(R.id.addingCartPR);
+        addwishlisttLL = findViewById(R.id.addwishlisttLL);
         desc = findViewById(R.id.decTV);
         plusIV = findViewById(R.id.plusIV);
         minusIV = findViewById(R.id.minusIV);
@@ -107,6 +108,9 @@ public class SingleProductActivity extends AppCompatActivity {
         imageSlider.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
         imageSlider.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
         imageSlider.setIndicatorUnselectedColor(Color.GRAY);
+//        imageSlider.setIndicatorMargins(0,0,0,-20);
+//        imageSlider.setIndicatorMarginCustom(0,0,0,20);
+
 
     }
 
@@ -130,11 +134,13 @@ public class SingleProductActivity extends AppCompatActivity {
             setQuantity();
         });
 
+//        adding item to cart
         addToCartLL.setOnClickListener(v -> {
             if (!isAdding) {
                 isAdding = true;
                 addingToggle(true);
-                String apikey = SharedPrefUtils.getSting(this, "apk");
+                String apikey = SharedPrefUtils.getSting(this, getString(R.string.api_key));
+//                System.out.println(apikey);
                 Call<AllProductResponse> cartCall = ApiClient.getClient().addToCart(apikey, product.getProductId(), quantity);
                 cartCall.enqueue(new Callback<AllProductResponse>() {
                     @Override
@@ -160,11 +166,42 @@ public class SingleProductActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), " Adding Already!!", Toast.LENGTH_SHORT).show();
             }
         });
+        //adding item to wishlist
+        addwishlisttLL.setOnClickListener(v ->{
+            if (!isAdding){
+                isAdding = true;
+                addingToggle(true);
+                String apikey = SharedPrefUtils.getSting(this,"apk");
+                Call<AllProductResponse> wishlistCall = ApiClient.getClient().addtowishlist(apikey,product.getProductId());
+                wishlistCall.enqueue(new Callback<AllProductResponse>() {
+                    @Override
+                    public void onResponse(Call<AllProductResponse> call, Response<AllProductResponse> response) {
+                        if (response.isSuccessful()){
+                            if (!response.body().getError()){
+                                Toast.makeText(SingleProductActivity.this, "Added to Wishlist", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        addingToggle(false);
+                        isAdding = false;
+                    }
+
+                    @Override
+                    public void onFailure(Call<AllProductResponse> call, Throwable t) {
+                        addingToggle(false);
+                        isAdding = false;
+
+                    }
+                });
+            }else{
+                Toast.makeText(getApplicationContext(),"Adding Wishlist !!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
 
     private void setQuantity() {
+
         quantityTV.setText(quantity + "");
     }
 

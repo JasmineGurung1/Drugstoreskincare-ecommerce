@@ -22,6 +22,7 @@ import com.example.drugstoreskincare.Home.fragment.home.adapters.CategoryAdapter
 import com.example.drugstoreskincare.Home.fragment.home.adapters.ShopAdapter;
 import com.example.drugstoreskincare.Home.fragment.home.adapters.SliderAdapter;
 import com.example.drugstoreskincare.R;
+import com.example.drugstoreskincare.Search.SearchActivity;
 import com.example.drugstoreskincare.api.ApiClient;
 import com.example.drugstoreskincare.api.response.AllProductResponse;
 import com.example.drugstoreskincare.api.response.Category;
@@ -49,7 +50,7 @@ public class HomeFragment extends Fragment {
     RecyclerView allProductsRV, categoryRV;
     ProgressBar loadingProgress;
     SliderView imageSlider;
-    TextView userNameTV;
+    TextView userNameTV, SearchTV;
     CircleImageView profileImage;
 
 
@@ -70,15 +71,30 @@ public class HomeFragment extends Fragment {
         imageSlider = view.findViewById(R.id.imageSlider);
         userNameTV = view.findViewById(R.id.userNameTV);
         profileImage = view.findViewById(R.id.profileImage);
+        SearchTV = view.findViewById(R.id.SearchTV);
         serverCall();
         getCategoriesOnline();
         getSliders();
         //setClickListeners();
         getusername();
+        goSearch();
+
+    }
+
+    private void goSearch() {
+        SearchTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), SearchActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
     }
 
     private void getusername() {
+
         userNameTV.setText(SharedPrefUtils.getSting(getActivity(),"nk"));
     }
 
@@ -176,7 +192,7 @@ public class HomeFragment extends Fragment {
         }
         categoryRV.setHasFixedSize(true);
         categoryRV.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-        CategoryAdapter categoryAdapter = new CategoryAdapter(temp,getContext());
+        CategoryAdapter categoryAdapter = new CategoryAdapter(temp,getContext(), true, false, null);
         categoryRV.setAdapter(categoryAdapter);
     }
 

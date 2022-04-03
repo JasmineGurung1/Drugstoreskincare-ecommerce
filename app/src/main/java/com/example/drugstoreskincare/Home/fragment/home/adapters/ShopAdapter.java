@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,6 +19,7 @@ import com.example.drugstoreskincare.singleProductPage.SingleProductActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+import java.util.Locale;
 
 public class ShopAdapter extends RecyclerView.Adapter <ShopAdapter.ShopViewHolder>{
     List<Product> productDataList;
@@ -27,9 +29,6 @@ public class ShopAdapter extends RecyclerView.Adapter <ShopAdapter.ShopViewHolde
     Boolean removeEnabled = true;
     CartItemClick cartItemClick;
 
-
-
-
     public ShopAdapter(List<Product> products, Context context, Boolean isCart) {
         this.productDataList = products;
         layoutInflater = LayoutInflater.from(context);
@@ -37,6 +36,7 @@ public class ShopAdapter extends RecyclerView.Adapter <ShopAdapter.ShopViewHolde
         this.isCart = isCart;
 
     }
+
 
     public void setCartItemClick(CartItemClick cartItemClick) {
         this.cartItemClick = cartItemClick;

@@ -1,4 +1,4 @@
-package com.example.drugstoreskincare.Profile;
+package com.example.drugstoreskincare.Setting;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +21,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void setOnclickListeners() {
+
         profileBackIV.setOnClickListener(v -> finish());
     }
 }

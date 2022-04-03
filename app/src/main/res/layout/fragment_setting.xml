@@ -67,7 +67,7 @@
 
 
         <TextView
-            android:id="@+id/policiesTV"
+            android:id="@+id/TermsTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/normal_spacing"
@@ -120,6 +120,22 @@
             android:layout_marginTop="@dimen/margin_ten"
             android:text="Log Out"
             android:drawableRight="@drawable/ic_logout"/>
+
+
+        <TextView
+            android:id="@+id/adminAreaTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normal_spacing"
+            android:background="@drawable/single_box"
+            android:backgroundTint="#F1EEEE"
+            android:drawableRight="@drawable/ic_admin"
+            android:drawableTint="@color/Light_pinK"
+            android:padding="@dimen/normal_spacing"
+            android:text="Admin Area"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:visibility="gone" />
 
     </LinearLayout>
 

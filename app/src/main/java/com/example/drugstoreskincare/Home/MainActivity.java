@@ -10,9 +10,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.drugstoreskincare.Home.fragment.CartFragment;
-import com.example.drugstoreskincare.Home.fragment.ProfileFragment;
 import com.example.drugstoreskincare.Home.fragment.SettingFragment;
-import com.example.drugstoreskincare.Home.fragment.WishListFragment;
+import com.example.drugstoreskincare.Home.fragment.WishlistFragment;
 import com.example.drugstoreskincare.Home.fragment.home.HomeFragment;
 import com.example.drugstoreskincare.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -22,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     HomeFragment homeFragment;
     CartFragment cartFragment;
-    WishListFragment wishListFragment;
     SettingFragment settingFragment;
+    WishlistFragment wishlistFragment;
     Fragment currentFragment;
 
     @Override
@@ -45,7 +44,14 @@ public class MainActivity extends AppCompatActivity {
                     changeFragment(homeFragment);
                     return true;
 
-                }else if (item.getTitle().equals(getString(R.string.cart))) {
+                }else if (item.getTitle().equals(getString(R.string.wishlist))) {
+
+                    if (wishlistFragment == null)
+                        wishlistFragment = new WishlistFragment();
+                       changeFragment(wishlistFragment);
+                    return true;
+
+                } else if (item.getTitle().equals(getString(R.string.cart))) {
 
                     if (cartFragment == null)
                         cartFragment = new CartFragment();
@@ -53,14 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
 
                 }
-                else if (item.getTitle().equals(getString(R.string.wishlist))) {
 
-                    if (wishListFragment == null)
-                        wishListFragment = new WishListFragment();
-                    changeFragment(wishListFragment);
-                    return true;
-
-                }
 
                 else if (item.getTitle().equals("Setting")) {
                     if (settingFragment == null)
