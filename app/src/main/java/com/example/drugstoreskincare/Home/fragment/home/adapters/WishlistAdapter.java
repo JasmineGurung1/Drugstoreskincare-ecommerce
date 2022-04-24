@@ -25,16 +25,14 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
     Context context;
   //  WishLisItemClick wishlistItemClick;
     WishlistCartItemClick  wishlistCartItemClick ;
-    Boolean isCart = false;
     Boolean removeEnabled = true;
 
 
 
-    public WishlistAdapter(List<Product> productDataList, Context context, Boolean isCart){
+    public WishlistAdapter(List<Product> productDataList, Context context){
         this.productDataList = productDataList;
         this.inflater = LayoutInflater.from(context);
         this.context = context;
-        this.isCart = isCart;
     }
 
 
@@ -76,21 +74,7 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
 
             }
         });
-        if (isCart) {
-            if (removeEnabled)
-                holder.WishRemoveIV.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                      // WishlistCartItemClick.onRemoveCart(holder.getAdapterPosition());
-                    }
-                });
-            else {
 
-                holder.WishRemoveIV.setVisibility(View.GONE);
-                holder.WishListMainLL.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                setMargins(holder.WishListMainLL, 0, 0, 16, 0);
-            }
-        }
     }
 
     public static void setMargins(View v, int l, int t, int r, int b) {
@@ -114,7 +98,7 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
         public WishlistViewHolder(@NonNull View itemView) {
             super(itemView);
             wishProductIV = itemView.findViewById(R.id.WishProductIV);
-            WishRemoveIV = itemView.findViewById(R.id.WishRemoveIV);
+            WishRemoveIV = itemView.findViewById(R.id.WishListRemoveIV);
             WishProductNameTV = itemView.findViewById(R.id.WishProductNameTV);
             WishOldPriceTV = itemView.findViewById(R.id.WishOldPriceTV);
             WishDiscountPriceTV = itemView.findViewById(R.id.WishDiscountPriceTV);

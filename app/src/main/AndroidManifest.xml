@@ -4,53 +4,67 @@
     package="com.example.drugstoreskincare">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- This attribute is "false" by default on apps targeting Android Q. -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="DRUGSTORESKINCARE"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Drugstoreskincare"
-        tools:replace="andriod:label">
+        tools:replace="android:theme">
+        <activity
+            android:name=".Setting.changepassword.ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".checkOut.address.AddAddressActivity"
+            android:exported="true"
+            android:theme="@style/Theme.HomeTheme" />
         <activity
             android:name=".Setting.ContactUsActivity"
-            android:exported="false"
-            android:theme="@style/Theme.HomeTheme"/>
+            android:exported="true"
+            android:theme="@style/Theme.HomeTheme" />
         <activity
             android:name=".Search.SearchActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.HomeTheme" />
         <activity
             android:name=".Setting.AboutUsActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.HomeTheme" />
         <activity
             android:name=".Setting.TermsAndConditionActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.HomeTheme" />
         <activity
             android:name=".Admin.addProduct.SelectCategoryActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.HomeTheme" />
         <activity
             android:name=".Admin.addProduct.AddProductActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.HomeTheme" />
         <activity
             android:name=".Admin.Products.ListProductActivity"
             android:exported="false" />
         <activity
             android:name=".Admin.AddCategory.ListCategoryActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.HomeTheme" />
         <activity
             android:name=".Admin.AdminActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.HomeTheme" />
         <activity
             android:name=".Setting.ProfileActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.HomeTheme" />
         <activity
             android:name=".checkOut.orderComplete.OrderCompleteActivity"
@@ -60,14 +74,14 @@
             android:exported="false" />
         <activity
             android:name=".checkOut.CheckOutActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.HomeTheme" />
         <activity
             android:name=".categoryPage.CategoryActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".singleProductPage.SingleProductActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.HomeTheme" />
         <activity
             android:name=".splashScreen.SplashScreenActivity"
@@ -81,14 +95,12 @@
         </activity>
         <activity
             android:name=".userAccount.UserAccountActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.HomeTheme" />
         <activity
             android:name=".Home.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.HomeTheme" />
     </application>
-
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
 </manifest>

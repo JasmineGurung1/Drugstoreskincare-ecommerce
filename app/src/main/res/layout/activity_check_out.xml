@@ -160,16 +160,16 @@
 
 
             <ImageView
-
+                android:id="@+id/codIV"
                 android:background="@drawable/box_shape"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:padding="@dimen/medium_spacing"
-                android:src="@drawable/cod"
-                />
+                android:src="@drawable/cod" />
 
 
             <ImageView
+                android:id="@+id/khaltiIV"
                 android:layout_marginStart="@dimen/normal_spacing"
                 android:background="@drawable/box_shape"
                 android:layout_width="70dp"
@@ -177,14 +177,6 @@
                 android:padding="@dimen/medium_spacing"
                 android:src="@drawable/khalti"/>
 
-            <ImageView
-                android:layout_marginStart="@dimen/normal_spacing"
-                android:background="@drawable/box_shape"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:padding="@dimen/medium_spacing"
-                android:src="@drawable/esewa"
-                />
 
 
         </LinearLayout>

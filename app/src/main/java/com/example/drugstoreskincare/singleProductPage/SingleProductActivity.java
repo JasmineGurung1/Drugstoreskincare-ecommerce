@@ -140,7 +140,6 @@ public class SingleProductActivity extends AppCompatActivity {
                 isAdding = true;
                 addingToggle(true);
                 String apikey = SharedPrefUtils.getSting(this, getString(R.string.api_key));
-//                System.out.println(apikey);
                 Call<AllProductResponse> cartCall = ApiClient.getClient().addToCart(apikey, product.getProductId(), quantity);
                 cartCall.enqueue(new Callback<AllProductResponse>() {
                     @Override
@@ -170,8 +169,7 @@ public class SingleProductActivity extends AppCompatActivity {
         addwishlisttLL.setOnClickListener(v ->{
             if (!isAdding){
                 isAdding = true;
-                addingToggle(true);
-                String apikey = SharedPrefUtils.getSting(this,"apk");
+                String apikey = SharedPrefUtils.getSting(this,getString(R.string.api_key));
                 Call<AllProductResponse> wishlistCall = ApiClient.getClient().addtowishlist(apikey,product.getProductId());
                 wishlistCall.enqueue(new Callback<AllProductResponse>() {
                     @Override
@@ -181,19 +179,15 @@ public class SingleProductActivity extends AppCompatActivity {
                                 Toast.makeText(SingleProductActivity.this, "Added to Wishlist", Toast.LENGTH_SHORT).show();
                             }
                         }
-                        addingToggle(false);
                         isAdding = false;
                     }
 
                     @Override
                     public void onFailure(Call<AllProductResponse> call, Throwable t) {
-                        addingToggle(false);
                         isAdding = false;
 
                     }
                 });
-            }else{
-                Toast.makeText(getApplicationContext(),"Adding Wishlist !!", Toast.LENGTH_SHORT).show();
             }
         });
 

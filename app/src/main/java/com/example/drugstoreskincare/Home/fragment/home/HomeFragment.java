@@ -95,7 +95,7 @@ public class HomeFragment extends Fragment {
 
     private void getusername() {
 
-        userNameTV.setText(SharedPrefUtils.getSting(getActivity(),"nk"));
+        userNameTV.setText(SharedPrefUtils.getSting(getActivity(),getString(R.string.name_key)));
     }
 
 

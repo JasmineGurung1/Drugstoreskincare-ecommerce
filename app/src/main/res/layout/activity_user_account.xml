@@ -18,8 +18,7 @@
             android:layout_height="250dp"
             android:scaleType="centerCrop"
             android:layout_marginTop="@dimen/margin_fifteen"
-            android:layout_marginBottom="@dimen/margin_fifteen"
-            android:src="@drawable/login_page" />
+            android:layout_marginBottom="@dimen/margin_fifteen"/>
 
         <FrameLayout
             android:id="@+id/formContainerFL"

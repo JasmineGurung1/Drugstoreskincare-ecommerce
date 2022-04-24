@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+    android:background="@color/lightgrey"
+tools:context=".checkOut.address.AddAddressActivity">
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/White"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add New Location"
+                android:textSize="20sp"
+                android:textColor="@color/Light_pinK"/>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="City "
+                    android:textSize="25dp"
+                    android:textColor="@color/Light_pinK"/>
+
+                <EditText
+                    android:id="@+id/CityET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/box_search"
+                    android:padding="10dp"
+                    android:textSize="16sp"
+                    android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/normal_spacing">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Street "
+                    android:textSize="25dp"
+                    android:textColor="@color/Light_pinK"/>
+
+                <EditText
+                    android:id="@+id/StreetET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/box_search"
+                    android:padding="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/Light_pinK"
+                    android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/normal_spacing">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Province "
+                    android:textSize="25dp"
+                    android:textColor="@color/Light_pinK"/>
+
+                <EditText
+                    android:id="@+id/ProvinceET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/box_search"
+                    android:padding="10dp"
+                    android:textSize="16sp"
+                    android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/normal_spacing">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Description "
+                    android:textSize="25dp"
+                    android:textColor="@color/Light_pinK"/>
+
+
+                <EditText
+                    android:id="@+id/DescriptionET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="3"
+                    android:background="@drawable/box_search"
+                    android:padding="10dp"
+                    android:textSize="16sp"
+                    android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/normal_spacing"
+                android:layout_marginTop="@dimen/normal_spacing"
+                android:layout_marginEnd="@dimen/normal_spacing"
+                android:layout_marginBottom="@dimen/normal_spacing"
+                android:gravity="center">
+
+
+                <LinearLayout
+                    android:id="@+id/addAddressLL"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/box_search"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="4dp"
+                        android:gravity="center"
+                        android:text="Add Address"
+                        android:textColor="@color/Light_pinK"
+                        android:textSize="25dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/cancelAddressLL"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10dp"
+                    android:background = "@drawable/box_search"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/cancelTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Cancel"
+                        android:textColor="@color/Light_pinK"
+                        android:textSize="25sp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</LinearLayout>

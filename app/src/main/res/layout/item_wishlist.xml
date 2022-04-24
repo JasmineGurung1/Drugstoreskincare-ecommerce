@@ -45,7 +45,7 @@
                 android:textStyle="bold"/>
 
             <ImageView
-                android:id="@+id/WishRemoveIV"
+                android:id="@+id/WishListRemoveIV"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/ic_delete"

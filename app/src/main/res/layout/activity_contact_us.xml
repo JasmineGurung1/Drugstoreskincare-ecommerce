@@ -129,6 +129,7 @@
                     app:tint="@color/Light_pinK" />
 
                 <TextView
+                    android:id="@+id/EmailTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"

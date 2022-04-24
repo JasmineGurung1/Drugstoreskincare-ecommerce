@@ -59,20 +59,22 @@ public class WishlistFragment extends Fragment {
                     @Override
                     public void onRefresh() {
                         swipeRefresh.setRefreshing(true);
-                        getCartItems();
+                        getWishlistItems();
                     }
 
 
                 });
-                getCartItems();
+                getWishlistItems();
             }
         });
+        getWishlistItems();
+
     }
 
-    private void getCartItems() {
+    private void getWishlistItems() {
        //load
         String key = SharedPrefUtils.getSting(getActivity(), "apk");
-        Call<AllProductResponse> wishItemsCall = ApiClient.getClient().getMyCart(key);
+        Call<AllProductResponse> wishItemsCall = ApiClient.getClient().getMyWishlist(key);
         wishItemsCall.enqueue(new Callback<AllProductResponse>() {
             @Override
             public void onResponse(Call<AllProductResponse> call, Response<AllProductResponse> response) {
@@ -85,7 +87,7 @@ public class WishlistFragment extends Fragment {
                             emptyWishlistIV.setVisibility(View.GONE);
                             allProductResponse = response.body();
                             products = response.body().getProducts();
-                            loadCartList();
+                            loadWishList();
                         }
                     }
                 }
@@ -106,11 +108,11 @@ public class WishlistFragment extends Fragment {
     }
 
 
-    private void loadCartList() {
+    private void loadWishList() {
         allWishlistProductRV.setHasFixedSize(true);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false);
         allWishlistProductRV.setLayoutManager(layoutManager);
-        WishlistAdapter wishlistAdapter = new WishlistAdapter(products, getContext(), true);
+        WishlistAdapter wishlistAdapter = new WishlistAdapter(products, getContext());
         wishlistAdapter.setWishCartItemClick(new WishlistAdapter.WishlistCartItemClick() {
             @Override
             public void onRemoveCart(int position) {

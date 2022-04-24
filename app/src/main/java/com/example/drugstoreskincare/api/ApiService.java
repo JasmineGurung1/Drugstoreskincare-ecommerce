@@ -1,5 +1,6 @@
 package com.example.drugstoreskincare.api;
 
+import com.example.drugstoreskincare.api.response.Address;
 import com.example.drugstoreskincare.api.response.AddressResponse;
 import com.example.drugstoreskincare.api.response.AllProductResponse;
 import com.example.drugstoreskincare.api.response.CategoryResponse;
@@ -35,7 +36,7 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("ecommerce/api/v1/cart")
-    Call<AllProductResponse> addToCart(@Header("Apikey") String apikey, @Field("product_id") int p, @Field("quantity") int q);
+    Call<AllProductResponse> addToCart(@Header("api_key") String apikey, @Field("product_id") int p, @Field("quantity") int q);
 
     @GET("/ecommerce/api/v1/get-all-products")
     Call<AllProductResponse> getAllProducts();
@@ -50,57 +51,59 @@ public interface ApiService {
     Call<AllProductResponse> getProductsByCategory(@Query("c_id") int catid);
 
     @DELETE("ecommerce/api/v1/cart")
-    Call<RegisterResponse> deleteFromCart(@Header("Apikey") String apikey, @Query("c_id") int cartID);
+    Call<RegisterResponse> deleteFromCart(@Header("api_key") String apikey, @Query("c_id") int cartID);
 
 
     @GET("ecommerce/api/v1/cart")
-    Call<AllProductResponse> getMyCart(@Header("Apikey") String apikey);
+    Call<AllProductResponse> getMyCart(@Header("api_key") String apikey);
 
 
     @GET("ecommerce/api/v1/address")
-    Call<AddressResponse> getMyAddresses(@Header("Apikey") String apikey);
+    Call<AddressResponse> getMyAddresses(@Header("api_key") String apikey);
+
+//
+//    @FormUrlEncoded
+//    @POST("ecommerce/api/v1/order")
+//    Call<RegisterResponse> order(@Header("api_key") String apikey,
+//                                 @Field("p_type") int p_type,
+//                                 @Field("address_id") int address_id,
+//                                 @Field("payment_refrence") String paymentRefrence);
+//                                 @Field("status") String status);
+
+
+    @GET("ecommerce/api/v1/order")
+    Call<OrderHistoryResponse> orderHistory(@Header("api_key") String apikey);
 
 
     @FormUrlEncoded
-    @POST("ecommerce/api/v1/order")
-    Call<RegisterResponse> order(@Header("Apikey") String apikey,
-                                 @Field("p_type") int p_type,
-                                 @Field("address_id") int address_id,
-                                 @Field("payment_refrence") String paymentRefrence);
-
-    @GET("/api/v1/order")
-    Call<OrderHistoryResponse> orderHistory(@Header("Apikey") String apikey);
-
-
-    @FormUrlEncoded
-    @POST("/api/v1/address")
-    Call<RegisterResponse> addAddress(
-            @Header("Apikey") String apikey,
+    @POST("ecommerce/api/v1/address")
+    Call<AddressResponse> addAddress(
+            @Header("api_key") String apikey,
             @Field("city") String city,
             @Field("street") String street,
             @Field("province") String province,
             @Field("description") String description);
 
     @Multipart
-    @POST("/api/v1/upload-category")
+    @POST("ecommerce/api/v1/upload-category")
     Call<RegisterResponse> uploadCategory(
-            @Header("Apikey") String apikey,
+            @Header("api_key") String apikey,
             @Part MultipartBody.Part file,
             @Part("name") RequestBody name
 
     );
 
-    @GET("/api/v1/dash")
-    Call<DashResponse> getDash(@Header("Apikey") String apikey);
+    @GET("ecommerce/api/v1/dash")
+    Call<DashResponse> getDash(@Header("api_key") String apikey);
 
-    @DELETE("/api/v1/category")
-    Call<RegisterResponse> deleteCategory(@Header("Apikey") String apikey, @Query("c_id") int id);
+    @DELETE("ecommerce/api/v1/category")
+    Call<RegisterResponse> deleteCategory(@Header("api_key") String apikey, @Query("c_id") int id);
 
 
     @Multipart
-    @POST("/api/v1/upload-product")
+    @POST("ecommerce/api/v1/upload-product")
     Call<RegisterResponse> uploadProduct(
-            @Header("Apikey") String apikey,
+            @Header("api_key") String apikey,
             @Part MultipartBody.Part[] files,
             @Part("name") RequestBody name,
             @Part("price") RequestBody price,
@@ -114,11 +117,21 @@ public interface ApiService {
 
 
     @FormUrlEncoded
-    @POST("ecommerce/api/v1/whishlist")
-    Call<AllProductResponse> addtowishlist(@Header("Apikey") String apikey, @Field("product_id") int p);
+    @POST("ecommerce/api/v1/wishlist")
+    Call<AllProductResponse> addtowishlist(@Header("api_key") String apikey, @Field("product_id") int p);
 
-    @GET("ecommerce/api/v1/cart")
-    Call<AllProductResponse> getMyWishlist(@Header("Apikey") String apikey);
+    @GET("ecommerce/api/v1/wishlist")
+    Call<AllProductResponse> getMyWishlist(@Header("api_key") String apikey);
+
+    @DELETE("ecommerce/api/v1/wishlist")
+    Call<RegisterResponse> deleteFromWishlist(@Header("api_key") String apikey, @Query("w_id") int wishlistID);
 
 
+    @FormUrlEncoded
+    @POST("ecommerce/api/v1/order")
+    Call<RegisterResponse> order(@Header("api_key") String apikey,
+                                 @Field("p_type") int p_type,
+                                 @Field("address_id") int address_id,
+                                 @Field("status") int status,
+                                 @Field("payment_refrence") String paymentRefrence);
 }

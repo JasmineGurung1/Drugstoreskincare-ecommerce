@@ -118,9 +118,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/margin_ten"
-            android:text="Log Out"
-            android:drawableRight="@drawable/ic_logout"/>
-
+            android:drawableRight="@drawable/ic_logout"
+            android:text="Log Out" />
 
         <TextView
             android:id="@+id/adminAreaTV"

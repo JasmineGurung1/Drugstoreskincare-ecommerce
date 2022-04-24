@@ -3,12 +3,12 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 31
 
     defaultConfig {
         applicationId "com.example.drugstoreskincare"
         minSdk 21
-        targetSdk 32
+        targetSdk 31
         versionCode 1
         versionName "1.0"
 
@@ -61,4 +61,10 @@ dependencies {
 
 //Rounded Image View
     implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    // khalti
+    implementation ('com.khalti:khalti-android:2.01.02') {
+        transitive = true
+
+    }
 }

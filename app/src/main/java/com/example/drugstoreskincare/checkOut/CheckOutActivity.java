@@ -1,5 +1,6 @@
 package com.example.drugstoreskincare.checkOut;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,8 +9,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.audiofx.DynamicsProcessing;
 import android.os.Bundle;
 import android.provider.Telephony;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -27,8 +30,15 @@ import com.example.drugstoreskincare.api.response.RegisterResponse;
 import com.example.drugstoreskincare.checkOut.address.AddressActivity;
 import com.example.drugstoreskincare.checkOut.orderComplete.OrderCompleteActivity;
 import com.example.drugstoreskincare.utils.SharedPrefUtils;
+import com.khalti.checkout.helper.Config;
+import com.khalti.checkout.helper.KhaltiCheckOut;
+import com.khalti.checkout.helper.OnCheckOutListener;
+import com.khalti.checkout.helper.PaymentPreference;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -38,7 +48,7 @@ public class CheckOutActivity extends AppCompatActivity {
     public static String CHECK_OUT_PRODUCTS = "sd";
     RecyclerView allProductRV;
     AllProductResponse allProductResponse;
-    ImageView backIv;
+    ImageView backIv, khaltiIV, codIV;
     RecyclerView allProductsRV;
     LinearLayout addressLL, checkOutLL;
     Address address;
@@ -47,6 +57,7 @@ public class CheckOutActivity extends AppCompatActivity {
     double subTotalPrice = 0;
     double shippingCharge = 100;
     int p_type = 1;
+    int status;
     String p_ref = "COD";
 
 
@@ -62,6 +73,8 @@ public class CheckOutActivity extends AppCompatActivity {
         checkOutLL = findViewById(R.id.checkOutLL);
         cityStreetTV = findViewById(R.id.cityStreetTV);
         provinceTV = findViewById(R.id.provinceTV);
+        khaltiIV = findViewById(R.id.khaltiIV);
+        codIV = findViewById(R.id.codIV);
         allProductsRV = findViewById(R.id.allProductsRV);
         totalTV = findViewById(R.id.totalTV);
         subTotalTV = findViewById(R.id.subTotalTV);
@@ -101,14 +114,95 @@ public class CheckOutActivity extends AppCompatActivity {
         checkOutLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(address != null){
-                    checkOut(subTotalPrice);
-                }else{
-                    Toast.makeText(CheckOutActivity.this, "Please Select a Address", Toast.LENGTH_SHORT).show();
+                if (address != null) {
+                    if (p_type == 1) {
+                        checkOut();
+                    } else {
+                        khaltiCheckOut();
+                    }
+
+                } else {
+                    Toast.makeText(CheckOutActivity.this, "Please Select A Address", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
+        khaltiIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                p_type = 2;
+                khaltiIV.setBackground(getResources().getDrawable(R.drawable.box_selected));
+                codIV.setBackground(getResources().getDrawable(R.drawable.box_shape));
+
+            }
+        });
+
+        codIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                p_type = 1;
+                codIV.setBackground(getResources().getDrawable(R.drawable.box_selected));
+                khaltiIV.setBackground(getResources().getDrawable(R.drawable.box_shape));
+            }
+        });
+
     }
+
+
+    private void khaltiCheckOut() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("merchant_extra", "This is extra data");
+        Config.Builder builder = new Config.Builder("test_public_key_fa284416f86845aa94430ab41c3e3dab", "" + products.get(0).getProductId(), products.get(0).getName(),(long) (subTotalPrice + shippingCharge) * 100, new OnCheckOutListener() {
+
+//        Config.Builder builder = new DynamicsProcessing.Config.Builder("test_public_key_f4a5e7e35b7e4d25aabe8af42bff077c", "" + products.get(0).getProductId(), products.get(0).getName(), (long) (subTotalPrice + shippingCharge) * 100, new OnCheckOutListener() {
+            @Override
+            public void onError(@NonNull String action, @NonNull Map<String, String> errorMap) {
+                Log.i(action, errorMap.toString());
+                Toast.makeText(CheckOutActivity.this, errorMap.toString(), Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onSuccess(@NonNull Map<String, Object> data) {
+                String key = SharedPrefUtils.getSting(CheckOutActivity.this, getString(R.string.api_key));
+                Call<RegisterResponse> orderCall = ApiClient.getClient().order(key, p_type, address.getId(),status, p_ref);
+                orderCall.enqueue(new Callback<RegisterResponse>() {
+                    @Override
+                    public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
+                        if (response.isSuccessful()) {
+                            Intent intent = new Intent(CheckOutActivity.this, OrderCompleteActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<RegisterResponse> call, Throwable t) {
+
+                    }
+
+
+                });
+
+            }
+        })
+                .paymentPreferences(new ArrayList<PaymentPreference>() {{
+                    add(PaymentPreference.KHALTI);
+                    add(PaymentPreference.EBANKING);
+                    add(PaymentPreference.MOBILE_BANKING);
+                    add(PaymentPreference.CONNECT_IPS);
+                    add(PaymentPreference.SCT);
+                }})
+                .additionalData(map)
+                .productUrl("https://bazarhub.com.np/router-ups")
+                .mobile("9802778788");
+        Config config = builder.build();
+        KhaltiCheckOut khaltiCheckOut = new KhaltiCheckOut(this, config);
+        khaltiCheckOut.show();
+
+
+    }
+
 
 
     private void loadCartList() {
@@ -162,16 +256,20 @@ public class CheckOutActivity extends AppCompatActivity {
 
 
 
-    private void checkOut(double finalPrice) {
-        String Key = SharedPrefUtils.getSting(this, "apk");
-        Call<RegisterResponse> orderCall = ApiClient.getClient().order(Key, p_type, address.getId(),p_ref );
+
+    private void checkOut() {
+        String key = SharedPrefUtils.getSting(this, getString(R.string.api_key));
+        Call<RegisterResponse> orderCall = ApiClient.getClient().order(key, p_type, address.getId(),status, p_ref);
         orderCall.enqueue(new Callback<RegisterResponse>() {
             @Override
             public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
-                if (response.isSuccessful()){
+                if (response.isSuccessful()) {
                     Intent intent = new Intent(CheckOutActivity.this, OrderCompleteActivity.class);
                     startActivity(intent);
                     finish();
+
+
+
                 }
             }
 
@@ -179,8 +277,11 @@ public class CheckOutActivity extends AppCompatActivity {
             public void onFailure(Call<RegisterResponse> call, Throwable t) {
 
             }
+
+
         });
 
     }
+
 
 }

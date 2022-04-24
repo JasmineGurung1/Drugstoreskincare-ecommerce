@@ -8,7 +8,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
+import com.example.drugstoreskincare.Home.fragment.home.adapters.AddressAdapter;
 import com.example.drugstoreskincare.R;
 import com.example.drugstoreskincare.api.ApiClient;
 import com.example.drugstoreskincare.api.response.Address;
@@ -17,14 +20,13 @@ import com.example.drugstoreskincare.utils.SharedPrefUtils;
 
 import java.util.List;
 
-import javax.xml.transform.Result;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AddressActivity extends AppCompatActivity {
     RecyclerView addressRV;
+    TextView AddAddressTV;
     public  static  String ADDRESS_SELECTED_KEY = "DFa";
 
 
@@ -33,14 +35,30 @@ public class AddressActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address);
         addressRV = findViewById(R.id.addressRV);
+        AddAddressTV = findViewById(R.id.AddAddressTV);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Select Address");
         getAddressOnline();
+        SetClickListener();
+
     }
 
+    private void SetClickListener() {
+        AddAddressTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AddressActivity.this, AddAddressActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+    }
+
+
     private void getAddressOnline() {
-        String Key = SharedPrefUtils.getSting(this,"apk");
+        String Key = SharedPrefUtils.getSting(this, getString(R.string.api_key));
         Call<AddressResponse> addressResponseCall =  ApiClient.getClient().getMyAddresses(Key);
         addressResponseCall.enqueue(new Callback<AddressResponse>() {
 

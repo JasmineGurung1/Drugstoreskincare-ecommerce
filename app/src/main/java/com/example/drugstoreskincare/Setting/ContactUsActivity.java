@@ -20,7 +20,7 @@ import com.example.drugstoreskincare.R;
 
 public class ContactUsActivity extends AppCompatActivity {
     private static final int REQUEST_CALL = 1;
-    private TextView numberTV;
+    private TextView numberTV, EmailTV;
     ImageView ContactBackIV;
 
 
@@ -30,6 +30,7 @@ public class ContactUsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_contact_us);
         numberTV = findViewById(R.id.numberTV);
         ContactBackIV = findViewById(R.id.ContactBackIV);
+        EmailTV = findViewById(R.id.EmailTV);
 
         numberTV.setPaintFlags(numberTV.getPaintFlags() |   Paint.UNDERLINE_TEXT_FLAG);
         backOnClick();
@@ -37,6 +38,7 @@ public class ContactUsActivity extends AppCompatActivity {
     }
 
     private void backOnClick() {
+
         ContactBackIV.setOnClickListener(v -> finish());
     }
 
@@ -47,6 +49,21 @@ public class ContactUsActivity extends AppCompatActivity {
                 makePhoneCall();
             }
         });
+
+        EmailTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendEmail();
+            }
+
+
+        });
+
+    }
+
+    private void sendEmail() {
+        startActivity(new Intent(Intent.ACTION_SENDTO, Uri.parse("mailTo:Drugstoreskincare@gmail.com")));
+
 
     }
 

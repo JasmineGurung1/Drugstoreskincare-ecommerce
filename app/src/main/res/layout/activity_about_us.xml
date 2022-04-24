@@ -73,12 +73,7 @@
                 android:layout_marginTop="@dimen/normal_spacing"
                 android:layout_marginEnd="25dp"
                 android:justificationMode="inter_word"
-                android:text="is a unique shopping app with a distinctive tone focusing on
-women's fashion. We offer affordable products including women's clothing,
-accessories, shoes, bags and more. The brand was founded in 2015.
-Its business covers more than 220 countries and regions around the world.
-Our vision is 'bringing happiness into every woman's life.'
-"
+                android:text="Drugstoreskincare is an exclusive importer and distributor major American and European cosmetics and skincare brands in Nepal. It remains the only Nepali business chain fully dedicated to beauty products and offers a wide range of products like makeup, skincare, masks, sunscreen, perfumes, and makeup accessories among others. By now, drugstoreskincare has authorization over more than twenty foreign beauty brands. We believe in inclusivity; therefore, our team is working to recreate the beautiful space into an open environment for everyone to explore. Drugstoreskincare has been working on a beauty campaign with a strong message of being and loving yourself, promoting our most cherished belief “True beauty is to be the real you”."
                 android:textSize="14dp"
                 android:textStyle="normal" />
 
@@ -99,13 +94,32 @@ Our vision is 'bringing happiness into every woman's life.'
                 android:layout_marginTop="@dimen/normal_spacing"
                 android:layout_marginEnd="25dp"
                 android:justificationMode="inter_word"
-                android:text="Look Classy is on a mission to build an one-stop-shop for the modern yet economical
-fashionista. We offer customers an inspiring place to discover the latest and
- most-wanted products with affordable prices.
-
-"
+                android:text="To become the largest beauty skin care brand of Nepal. To provide genuine and authentic products to the customer and gain customer satisfaction."
                 android:textSize="14dp"
                 android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/normal_spacing"
+                android:text="OUR COMMITMENT "
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/Light_pinK"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="@dimen/normal_spacing"
+                android:layout_marginEnd="25dp"
+                android:justificationMode="inter_word"
+                android:text=""
+                android:textSize="14dp"
+                android:textStyle="normal" />
+
 
         </LinearLayout>
     </ScrollView>
