@@ -106,7 +106,8 @@
             android:textColor="@color/grey"
             android:textSize="16dp"/>
 
-        <TextView
+        <EditText
+            android:id="@+id/fullNameET"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Jasmine Gurung"
@@ -150,7 +151,8 @@
             android:textColor="@color/grey"
             android:textSize="16dp"/>
 
-        <TextView
+        <EditText
+            android:id="@+id/EmailET"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="jasmine@gmail.com"
@@ -194,7 +196,8 @@
             android:textColor="@color/grey"
             android:textSize="16dp" />
 
-        <TextView
+        <EditText
+            android:id="@+id/phnnumberET"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="9806714523"
@@ -235,7 +238,8 @@
             android:textColor="@color/grey"
             android:textSize="16dp"/>
 
-        <TextView
+        <EditText
+            android:id="@+id/bodET"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="19/March/2001"

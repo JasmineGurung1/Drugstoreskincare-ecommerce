@@ -19,13 +19,15 @@ import com.example.drugstoreskincare.Setting.ContactUsActivity;
 import com.example.drugstoreskincare.Setting.ProfileActivity;
 import com.example.drugstoreskincare.R;
 import com.example.drugstoreskincare.Setting.TermsAndConditionActivity;
+import com.example.drugstoreskincare.checkOut.orderHsitory.OrderActivity;
+import com.example.drugstoreskincare.checkOut.orderHsitory.OrderHistosyActivity;
 import com.example.drugstoreskincare.userAccount.UserAccountActivity;
 import com.example.drugstoreskincare.utils.SharedPrefUtils;
 
 
 public class SettingFragment extends Fragment {
     Button logOutTV;
-    TextView profileTV, adminAreaTV, AboutUsTV, TermsTV,contactusTV;
+    TextView profileTV, adminAreaTV, AboutUsTV, TermsTV,contactusTV, OrderHistoryTV;
 
 
     @Override
@@ -44,6 +46,7 @@ public class SettingFragment extends Fragment {
         AboutUsTV = view.findViewById(R.id.AboutUsTV);
         TermsTV = view.findViewById(R.id.TermsTV);
         contactusTV = view.findViewById(R.id.contactusTV);
+        OrderHistoryTV = view.findViewById(R.id.OrderHistoryTV);
         setClickListeners();
         OnClick();
         checkAdmin();
@@ -85,6 +88,13 @@ public class SettingFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), ContactUsActivity.class);
+                startActivity(intent);
+            }
+        });
+        OrderHistoryTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), OrderActivity.class);
                 startActivity(intent);
             }
         });

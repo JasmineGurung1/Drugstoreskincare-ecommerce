@@ -10,13 +10,14 @@
         android:id="@+id/ImageRL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/pinK">
+        android:background="@color/white">
 
 
         <com.smarteist.autoimageslider.SliderView
             android:id="@+id/imageSlider"
             android:layout_width="match_parent"
             android:layout_height="350dp"
+            android:layout_margin="@dimen/margin_ten"
             app:sliderAnimationDuration="600"
             app:sliderAutoCycleDirection="back_and_forth"
             app:sliderAutoCycleEnabled="true"
@@ -27,9 +28,7 @@
             app:sliderIndicatorPadding="3dp"
             app:sliderIndicatorRadius="2dp"
             app:sliderIndicatorSelectedColor="@color/Light_pinK"
-            app:sliderIndicatorUnselectedColor="#FFF"
-
-            />
+            app:sliderIndicatorUnselectedColor="#FFF" />
 
         <ImageView
             android:id="@+id/backIV"
@@ -41,7 +40,7 @@
             android:layout_marginBottom="@dimen/large_spacing"
             android:elevation="10dp"
             android:src="@drawable/ic_back"
-            app:tint="@color/White" />
+            app:tint="@color/Light_pinK" />
 
     </RelativeLayout>
 

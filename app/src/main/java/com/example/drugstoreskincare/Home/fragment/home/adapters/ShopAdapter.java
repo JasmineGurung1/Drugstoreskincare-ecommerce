@@ -21,7 +21,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 import java.util.Locale;
 
-public class ShopAdapter extends RecyclerView.Adapter <ShopAdapter.ShopViewHolder>{
+public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder> {
     List<Product> productDataList;
     LayoutInflater layoutInflater;
     Context context;//layout tasney kaam garcha
@@ -58,22 +58,20 @@ public class ShopAdapter extends RecyclerView.Adapter <ShopAdapter.ShopViewHolde
     @Override
     public void onBindViewHolder(@NonNull ShopViewHolder holder, int position) {
         holder.nameTV.setText(productDataList.get(position).getName());
-        if (productDataList.get(position).getDiscountPrice() == null || productDataList.get(position).getDiscountPrice()==0){
+        if (productDataList.get(position).getDiscountPrice() == null || productDataList.get(position).getDiscountPrice() == 0) {
             holder.PriceTV.setVisibility(View.GONE);
             holder.discountPrice.setText(productDataList.get(position).getPrice() + "");
-        }
-        else {
+        } else {
             holder.discountPrice.setText(productDataList.get(position).getDiscountPrice() + "");
             holder.PriceTV.setText(productDataList.get(position).getPrice() + "");
 
             Picasso.get().load(productDataList.get(position).getImages().get(0)).into(holder.productIV);
             holder.mainLL.setOnClickListener(new View.OnClickListener() {
 
-
                 @Override
                 public void onClick(View view) {
                     Intent productPage = new Intent(context, SingleProductActivity.class);
-                    productPage.putExtra(SingleProductActivity.key,  productDataList.get(holder.getAdapterPosition()));
+                    productPage.putExtra(SingleProductActivity.key, productDataList.get(holder.getAdapterPosition()));
                     context.startActivity(productPage);
 
                 }
@@ -118,7 +116,8 @@ public class ShopAdapter extends RecyclerView.Adapter <ShopAdapter.ShopViewHolde
         ImageView productIV, removeCartIV;
         TextView nameTV, PriceTV, discountPriceTV, discountPrice;
         LinearLayout mainLL, quantityIV;
-        public ShopViewHolder( View itemView){
+
+        public ShopViewHolder(View itemView) {
             super(itemView);
             productIV = itemView.findViewById(R.id.productIV);
             nameTV = itemView.findViewById(R.id.productNameTV);

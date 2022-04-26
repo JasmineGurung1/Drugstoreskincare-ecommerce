@@ -89,7 +89,7 @@ public class CartFragment extends Fragment {
                         if (response.body().getProducts().size() == 0) {
                             showEmptyLayout();
                         } else {
-                            emptyCartIV.setVisibility(View.GONE);
+                            showCartLayout();
                             allProductResponse = response.body();
                             products = response.body().getProducts();
                             loadCartList();
@@ -108,11 +108,17 @@ public class CartFragment extends Fragment {
         });
     }
 
+    private void showCartLayout() {
+        emptyCartIV.setVisibility(View.GONE);
+        orderLL.setVisibility(View.VISIBLE);
+    }
+
     private void showEmptyLayout() {
         emptyCartIV.setVisibility(View.VISIBLE);
         orderLL.setVisibility(View.GONE);
     }
-//  delete cart item
+
+    //  delete cart item
     private void loadCartList() {
         allProductRV.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());

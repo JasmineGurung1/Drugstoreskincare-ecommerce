@@ -21,6 +21,13 @@
         android:theme="@style/Theme.Drugstoreskincare"
         tools:replace="android:theme">
         <activity
+            android:name=".checkOut.orderHsitory.OrderActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HomeTheme"/>
+        <activity
+            android:name=".checkOut.orderHsitory.OrderHistosyActivity"
+            android:exported="false" />
+        <activity
             android:name=".Setting.changepassword.ChangePasswordActivity"
             android:exported="false" />
         <activity
@@ -57,11 +64,11 @@
         <activity
             android:name=".Admin.AddCategory.ListCategoryActivity"
             android:exported="true"
-            android:theme="@style/Theme.HomeTheme" />
+            android:theme="@style/Theme.Drugstoreskincare" />
         <activity
             android:name=".Admin.AdminActivity"
             android:exported="true"
-            android:theme="@style/Theme.HomeTheme" />
+            android:theme="@style/Theme.Drugstoreskincare" />
         <activity
             android:name=".Setting.ProfileActivity"
             android:exported="true"

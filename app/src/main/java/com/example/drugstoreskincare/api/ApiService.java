@@ -126,6 +126,10 @@ public interface ApiService {
     @DELETE("ecommerce/api/v1/wishlist")
     Call<RegisterResponse> deleteFromWishlist(@Header("api_key") String apikey, @Query("w_id") int wishlistID);
 
+    @FormUrlEncoded
+    @POST("ecommerce/api/v1/wishlistToCart")
+    Call<RegisterResponse> wishlistToCart(@Header("api_key") String apikey, @Field("wishlist_id") int wishlistID);
+
 
     @FormUrlEncoded
     @POST("ecommerce/api/v1/order")
@@ -134,4 +138,19 @@ public interface ApiService {
                                  @Field("address_id") int address_id,
                                  @Field("status") int status,
                                  @Field("payment_refrence") String paymentRefrence);
+
+    @FormUrlEncoded
+    @POST("api/v1/forget-password")
+    Call<RegisterResponse> forgotpassword(@Header("api_key") String apikey, @Field("password") String password);
+
+//    Call<RegisterResponse> updateProfile(String key, String names, String email, String dateofbirth, String contact);
+
+
+    @FormUrlEncoded
+    @POST("/api/v1/updateProfile")
+    Call<RegisterResponse> updateProfile(@Header("api_key") String apikey,
+                                         @Field("name") String names,
+                                         @Field("email") String email,
+                                         @Field("dateofbirth") String dob,
+                                         @Field("phnnumber") String phonenumber);
 }

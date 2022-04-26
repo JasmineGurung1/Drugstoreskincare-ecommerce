@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_centerInParent="true"
-    android:orientation="horizontal"
-    android:background="@drawable/pinkbox_shape"
     android:layout_margin="15dp"
+    android:background="@drawable/pinkbox_shape"
+    android:orientation="horizontal"
     android:padding="10dp">
 
     <LinearLayout
@@ -42,7 +42,7 @@
                 android:text="Ordinary Niacinamide"
                 android:textColor="@color/Light_pinK"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/WishListRemoveIV"
@@ -93,6 +93,7 @@
 
 
             <ImageView
+                android:id="@+id/moveToCartIV"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/ic_cart"
@@ -103,7 +104,6 @@
 
 
     </LinearLayout>
-
 
 
 </LinearLayout>

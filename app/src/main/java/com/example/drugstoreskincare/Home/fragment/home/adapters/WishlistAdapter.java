@@ -23,7 +23,6 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
     List<Product> productDataList;
     LayoutInflater inflater;
     Context context;
-  //  WishLisItemClick wishlistItemClick;
     WishlistCartItemClick  wishlistCartItemClick ;
     Boolean removeEnabled = true;
 
@@ -41,7 +40,6 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
     }
 
     public void setRemoveEnabled(Boolean removeEnabled) {
-
         this.removeEnabled = removeEnabled;
     }
 
@@ -75,6 +73,20 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
             }
         });
 
+        holder.WishRemoveIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                wishlistCartItemClick.onRemoveWishlist(holder.getAdapterPosition());
+            }
+        });
+
+        holder.moveToCartIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                wishlistCartItemClick.onMoveWishlistItemToCart(holder.getAdapterPosition());
+            }
+        });
+
     }
 
     public static void setMargins(View v, int l, int t, int r, int b) {
@@ -91,7 +103,7 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
     }
 
     public class WishlistViewHolder extends RecyclerView.ViewHolder {
-        ImageView wishProductIV, WishRemoveIV;
+        ImageView wishProductIV, WishRemoveIV, moveToCartIV;
         TextView WishProductNameTV, WishOldPriceTV, WishDiscountPriceTV;
         LinearLayout WishlistCartLL,WishListMainLL;
 
@@ -104,11 +116,13 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
             WishDiscountPriceTV = itemView.findViewById(R.id.WishDiscountPriceTV);
             WishlistCartLL = itemView.findViewById(R.id.WishlistCartLL);
             WishListMainLL = itemView.findViewById(R.id.WishListMainLL);
+            moveToCartIV = itemView.findViewById(R.id.moveToCartIV);
         }
     }
 
 
     public interface WishlistCartItemClick {
-        public void onRemoveCart(int position);
+        void onRemoveWishlist(int position);
+        void onMoveWishlistItemToCart(int position);
     }
 }

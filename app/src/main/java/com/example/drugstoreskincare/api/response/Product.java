@@ -46,6 +46,10 @@ private Integer cartQuantity;
 @Expose
 private Integer cartID;
 
+@SerializedName("wishlist_id")
+@Expose
+private Integer wishlistId;
+
 
 
 
@@ -142,7 +146,18 @@ this.categories = categories;
     }
 
     public void setCartID(Integer cartID) {
-        this.cartID = cartID;
+
+    this.cartID = cartID;
     }
+
+    public Integer getWishlistId() {
+        return wishlistId;
+    }
+
+    public void setWishlistId(Integer wishlistId) {
+        this.wishlistId = wishlistId;
+    }
+
+
 
 }

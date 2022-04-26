@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.drugstoreskincare.Admin.AdminActivity;
 import com.example.drugstoreskincare.Home.MainActivity;
 import com.example.drugstoreskincare.R;
 import com.example.drugstoreskincare.api.ApiClient;
@@ -85,8 +86,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                                 SharedPrefUtils.setString(getActivity(), getString(R.string.api_key), loginResponse.getApiKey());
                                 SharedPrefUtils.setBoolean(getActivity(),  getString(R.string.staff_key), loginResponse.getIsStaff());
 
-
-                                getActivity().startActivity(new Intent(getContext(), MainActivity.class));
+//                                getActivity().startActivity(new Intent(getContext(), MainActivity.class));
+                                Intent intent = new Intent(getContext(), loginResponse.getIsStaff() ? AdminActivity.class : MainActivity.class);
+                                startActivity(intent);
                                 getActivity().finish();
 
                             }
