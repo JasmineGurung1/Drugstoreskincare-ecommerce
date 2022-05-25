@@ -8,6 +8,7 @@
     android:background="@drawable/box_color"
     android:backgroundTint="#F1F6FD"
     android:orientation="horizontal"
+    android:layout_margin="10dp"
 
     android:padding="@dimen/normal_spacing">
 

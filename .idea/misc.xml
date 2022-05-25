@@ -42,7 +42,7 @@
         <entry key="app/src/main/res/drawable/ic_time.xml" value="0.2212962962962963" />
         <entry key="app/src/main/res/drawable/ic_wishlist.xml" value="0.2212962962962963" />
         <entry key="app/src/main/res/layout/activity_about_us.xml" value="0.2854520803266897" />
-        <entry key="app/src/main/res/layout/activity_add_address.xml" value="0.18462040254729803" />
+        <entry key="app/src/main/res/layout/activity_add_address.xml" value="0.27421752527717086" />
         <entry key="app/src/main/res/layout/activity_add_product.xml" value="0.22013875537168323" />
         <entry key="app/src/main/res/layout/activity_address.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_admin.xml" value="0.25" />
@@ -75,7 +75,7 @@
         <entry key="app/src/main/res/layout/fragment_wishlist.xml" value="0.25" />
         <entry key="app/src/main/res/layout/history_details.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/item_add_category.xml" value="0.3098958333333333" />
-        <entry key="app/src/main/res/layout/item_address.xml" value="0.22696155787791877" />
+        <entry key="app/src/main/res/layout/item_address.xml" value="0.3477422104349957" />
         <entry key="app/src/main/res/layout/item_cart.xml" value="0.375" />
         <entry key="app/src/main/res/layout/item_category.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/item_categoryimage.xml" value="0.3098958333333333" />
