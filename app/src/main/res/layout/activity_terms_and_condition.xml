@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="@dimen/normal_spacing"
-                android:text="Welcome to Look Classy (“Company”, “we”, “our”, “us”)!"
+                android:text="Welcome to DrugStoreSkinCare (“Company”, “we”, “our”, “us”)!"
                 android:textSize="14dp"
                 android:textColor="@color/black"
 

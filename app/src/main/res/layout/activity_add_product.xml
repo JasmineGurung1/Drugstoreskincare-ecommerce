@@ -140,24 +140,26 @@
                 android:padding="@dimen/normal_spacing"
                 tools:ignore="SpeakableTextPresentCheck" />
 
-            <TextView
-                android:onClick="pDateClick"
-                android:id="@+id/productionDateET"
+            <EditText
+                android:id="@+id/manuFacET"
+                android:textSize="18sp"
+                android:autofillHints="da"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/normal_spacing"
                 android:height="50dp"
-                android:textSize="18sp"
                 android:background="@drawable/box_shape"
                 android:backgroundTint="@color/lightgrey"
-                android:hint="Production Date"
+                android:hint="Manufacture Date"
                 android:padding="@dimen/normal_spacing"
-                tools:ignore="UsingOnClickInXml" />
+                tools:ignore="SpeakableTextPresentCheck" />
+
 
             <EditText
+                android:id="@+id/expiryDateET"
                 android:textSize="18sp"
                 android:autofillHints="da"
-                android:id="@+id/expiryDateET"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/normal_spacing"

@@ -115,8 +115,8 @@ public interface ApiService {
             @Part("quantity") RequestBody quantity,
             @Part("discount_price") RequestBody discount_price,
             @Part("categories") RequestBody categories,
-            @Part("production_date") RequestBody production_date,
-            @Part("expire_date") RequestBody expire_date
+            @Part("manuf_date") RequestBody production_date,
+            @Part("expiry_date") RequestBody expire_date
     );
 
 
@@ -154,7 +154,6 @@ public interface ApiService {
     @POST("ecommerce/api/v1/updateProfile")
     Call<RegisterResponse> updateProfile(@Header("api_key") String apikey,
                                          @Field("name") String names,
-                                         @Field("email") String email,
-                                         @Field("dateofbirth") String dob,
-                                         @Field("phnnumber") String phonenumber);
+                                         @Field("email") String email
+    );
 }

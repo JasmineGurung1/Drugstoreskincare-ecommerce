@@ -40,6 +40,7 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
     }
 
     public void setRemoveEnabled(Boolean removeEnabled) {
+
         this.removeEnabled = removeEnabled;
     }
 

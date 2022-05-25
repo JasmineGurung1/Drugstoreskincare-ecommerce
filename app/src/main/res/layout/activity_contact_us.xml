@@ -137,7 +137,7 @@
                     android:layout_marginTop="@dimen/normal_spacing"
                     android:layout_marginBottom="@dimen/normal_spacing"
                     android:layout_toRightOf="@id/mailIV"
-                    android:text="jasmine.grg@gmail.com"
+                    android:text="Drugstoreskincare@gmail.com"
                     android:textColor="@color/grey"
                     android:textSize="20sp" />
 

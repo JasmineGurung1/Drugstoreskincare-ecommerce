@@ -120,6 +120,16 @@
                 android:textSize="14dp"
                 android:textStyle="normal" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:justificationMode="inter_word"
+                android:text="The greatest in beauty is available at DrugStore. This has been our motto since the beginning of DrugStore. We offer an exclusive brand experience, great service, and beauty expertise in a one-of-a-kind retail environment. DrugStore is 100% committed to customer happiness, and we guarantee that all of our items are genuine and legitimate. We will not accept any fakes. DrugStore not only promotes cosmetics but also emphasizes skin care products. Our team has always put its clients' needs first and strives to give the finest service possible."
+                android:textSize="14dp"
+                android:textStyle="normal" />
+
 
         </LinearLayout>
     </ScrollView>

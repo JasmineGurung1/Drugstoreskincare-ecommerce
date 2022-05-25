@@ -57,7 +57,7 @@ public class AddProductActivity extends AppCompatActivity {
     RAdapter iAdapter;
     RAdapter cAdapter;
     Button uploadBtn;
-    EditText productNameET, descriptionET, priceET, quantityET, discountPriceET;
+    EditText productNameET, descriptionET, priceET, quantityET, discountPriceET,expiryDateET,manuFacET;
 
 
     @Override
@@ -75,6 +75,8 @@ public class AddProductActivity extends AppCompatActivity {
         priceET = findViewById(R.id.priceET);
         quantityET = findViewById(R.id.quantityET);
         discountPriceET = findViewById(R.id.discountPriceET);
+        expiryDateET = findViewById(R.id.expiryDateET);
+        manuFacET = findViewById(R.id.manuFacET);
         setImgRV();
         setCatRv();
 
@@ -214,8 +216,8 @@ public class AddProductActivity extends AppCompatActivity {
         String discountPrice = discountPriceET.getText().toString();
         String quantity = quantityET.getText().toString();
         String desc = descriptionET.getText().toString();
-        String pDate = "2020-11-12";
-        String eDate = "2024-10-12";
+        String pDate = manuFacET.getText().toString();
+        String eDate = expiryDateET.getText().toString();
         String key = SharedPrefUtils.getSting(this, getString(R.string.api_key));
         RequestBody rName = RequestBody.create(MediaType.parse("text/plain"), name);
         RequestBody rPrice = RequestBody.create(MediaType.parse("text/plain"), price);

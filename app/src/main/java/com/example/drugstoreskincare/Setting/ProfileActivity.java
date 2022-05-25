@@ -24,8 +24,8 @@ import retrofit2.Response;
 
 public class ProfileActivity extends AppCompatActivity {
     ImageView profilebackIV;
-    EditText fullnameET, emailET, bodET, phnnumberET;
-    LinearLayout  changePasswordLL;
+    EditText fullnameET, emailET;
+    LinearLayout changePasswordLL;
     ProgressDialog progress;
     TextView editTV, profileNameTV;
 
@@ -37,8 +37,6 @@ public class ProfileActivity extends AppCompatActivity {
         profilebackIV = findViewById(R.id.ProfileBackIV);
         fullnameET = findViewById(R.id.fullNameET);
         emailET = findViewById(R.id.EmailET);
-        bodET = findViewById(R.id.bodET);
-        phnnumberET = findViewById(R.id.phnnumberET);
         changePasswordLL = findViewById(R.id.changePasswordLL);
         editTV = findViewById(R.id.editTV);
         profileNameTV = findViewById(R.id.profileNameTV);
@@ -46,9 +44,6 @@ public class ProfileActivity extends AppCompatActivity {
         fullnameET.setText(SharedPrefUtils.getSting(this, getString(R.string.name_key)));
         emailET.setText(SharedPrefUtils.getSting(this, getString(R.string.email_id)));
         profileNameTV.setText(SharedPrefUtils.getSting(this, getString(R.string.name_key)));
-//        bodET.setText(SharedPrefUtils.getString(this, getString(R.string.dateofbirth)));
-//        phnnumberET.setText(SharedPrefUtils.getString(this, getString(R.string.contact)));
-//        setOnClickListeners();
 //
 //    }
 //
@@ -60,26 +55,24 @@ public class ProfileActivity extends AppCompatActivity {
         editTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (validate()) {
-                    callResponse(fullnameET.getText().toString(), emailET.getText().toString(), bodET.getText().toString(), phnnumberET.getText().toString());
-                    fullnameET.setText("");
-                    emailET.setText("");
-                    bodET.setText("");
-                    phnnumberET.setText("");
-
-                }
+                callResponse(fullnameET.getText().toString(), emailET.getText().toString());
+                fullnameET.setText("");
+                emailET.setText("");
             }
 
-            private void callResponse(String names, String email, String dob, String phonenumber) {
+            private void callResponse(String names, String email) {
                 String key = SharedPrefUtils.getSting(ProfileActivity.this, getString(R.string.api_key));
-                Call<RegisterResponse> registerResponseCall = ApiClient.getClient().updateProfile(key, names, email, dob, phonenumber);
+                Call<RegisterResponse> registerResponseCall = ApiClient.getClient().updateProfile(key, names, email);
 
                 registerResponseCall.enqueue(new Callback<RegisterResponse>() {
                     @Override
                     public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
                         if (response.isSuccessful()) {
                             if (!response.body().getError()) {
+                                Toast.makeText(ProfileActivity.this, "successfully updated", Toast.LENGTH_LONG).show();
                                 Toast.makeText(ProfileActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
+                                SharedPrefUtils.setString(ProfileActivity.this, getString(R.string.name_key), names);
+                                SharedPrefUtils.setString(ProfileActivity.this, getString(R.string.email_id), email);
 
                             }
                         }
@@ -92,16 +85,6 @@ public class ProfileActivity extends AppCompatActivity {
                 });
             }
 
-
-            private boolean validate() {
-                if (phnnumberET.getText().toString().length() < 10) {
-                    Toast.makeText(getApplicationContext(), "Contact number cannot be less than 10 letters", Toast.LENGTH_SHORT).show();
-                    return false;
-                } else {
-                    Toast.makeText(getApplicationContext(), "You have successfully updated your profile", Toast.LENGTH_SHORT).show();
-                    return true;
-                }
-            }
         });
 
         setOnclickListeners();
@@ -123,9 +106,6 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
 
 
 }

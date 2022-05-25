@@ -96,6 +96,7 @@ public class WishlistFragment extends Fragment {
 
 
     private void showEmptyLayout() {
+
         emptyWishlistIV.setVisibility(View.VISIBLE);
     }
 
