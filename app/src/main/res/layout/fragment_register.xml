@@ -12,63 +12,118 @@
         android:gravity="center"
         android:orientation="vertical">
 
-
         <EditText
             android:id="@+id/nameET"
+            android:layout_marginEnd="@dimen/normal_spacing"
+            android:layout_marginStart="@dimen/normal_spacing"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="8dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/box_shape"
+            android:paddingLeft="10dp"
+            android:textColor="#455A64"
             android:drawableLeft="@drawable/person"
             android:drawablePadding="10dp"
             android:hint="Name"
-            android:inputType="textPersonName"
-            android:padding="12dp"
-            android:textSize="14sp" />
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="16sp"/>
+
         <EditText
             android:id="@+id/emailSignup"
+            android:layout_marginEnd="@dimen/normal_spacing"
+            android:layout_marginStart="@dimen/normal_spacing"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="8dp"
             android:background="@drawable/box_shape"
+            android:paddingLeft="10dp"
+            android:textColor="#455A64"
             android:drawableLeft="@drawable/at"
             android:drawablePadding="10dp"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:padding="12dp"
-            android:textSize="14sp" />
-
+            android:hint="Email Address"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="16sp"/>
 
         <EditText
             android:id="@+id/signupPass"
+            android:layout_marginEnd="@dimen/normal_spacing"
+            android:layout_marginStart="@dimen/normal_spacing"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="8dp"
             android:background="@drawable/box_shape"
+            android:paddingLeft="10dp"
+            android:textColor="#455A64"
             android:drawableLeft="@drawable/ic_padlock"
             android:drawableRight="@drawable/ic_visibility"
             android:drawablePadding="10dp"
             android:hint="Password"
             android:inputType="textPassword"
-            android:padding="12dp"
-            android:textSize="14sp" />
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="16sp"/>
+
+
+
         <EditText
             android:id="@+id/confirmPasswordET"
+            android:layout_marginEnd="@dimen/normal_spacing"
+            android:layout_marginStart="@dimen/normal_spacing"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="8dp"
             android:background="@drawable/box_shape"
+            android:paddingLeft="10dp"
+            android:textColor="#455A64"
             android:drawableLeft="@drawable/ic_padlock"
             android:drawableRight="@drawable/ic_visibility"
             android:drawablePadding="10dp"
             android:hint="Confirm Password"
             android:inputType="textPassword"
-            android:padding="12dp"
-            android:textSize="14sp" />
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="16sp"/>
+
+
+
+        <EditText
+            android:id="@+id/bodET"
+            android:layout_marginEnd="@dimen/normal_spacing"
+            android:layout_marginStart="@dimen/normal_spacing"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/box_shape"
+            android:paddingLeft="10dp"
+            android:textColor="#455A64"
+            android:drawableLeft="@drawable/ic_calendar"
+            android:drawablePadding="10dp"
+            android:hint="Date of Birth"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="16sp" />
+
+
+
+        <EditText
+            android:id="@+id/numberET"
+            android:layout_marginEnd="@dimen/normal_spacing"
+            android:layout_marginStart="@dimen/normal_spacing"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/box_shape"
+            android:paddingLeft="10dp"
+            android:textColor="#455A64"
+            android:drawableLeft="@drawable/ic_phone"
+            android:drawablePadding="10dp"
+            android:hint="Phone Number"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="16sp" />
+
 
     </LinearLayout>
 

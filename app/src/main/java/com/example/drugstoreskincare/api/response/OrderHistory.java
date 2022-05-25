@@ -19,9 +19,9 @@ public class OrderHistory implements Serializable {
     @SerializedName("payment_refrence")
     @Expose
     private String paymentRefrence;
-    @SerializedName("status")
+    @SerializedName("Status")
     @Expose
-    private Integer status;
+    private Integer Status;
     @SerializedName("bag")
     @Expose
     private List<Bag> bag = null;
@@ -59,11 +59,11 @@ public class OrderHistory implements Serializable {
     }
 
     public Integer getStatus() {
-        return status;
+        return Status;
     }
 
     public void setStatus(Integer status) {
-        this.status = status;
+        this.Status = status;
     }
 
     public List<Bag> getBag() {

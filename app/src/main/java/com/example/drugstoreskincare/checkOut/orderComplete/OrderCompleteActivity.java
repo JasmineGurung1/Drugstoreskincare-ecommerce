@@ -2,10 +2,12 @@ package com.example.drugstoreskincare.checkOut.orderComplete;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.drugstoreskincare.Home.MainActivity;
 import com.example.drugstoreskincare.R;
 
 public class OrderCompleteActivity extends AppCompatActivity {
@@ -28,6 +30,8 @@ public class OrderCompleteActivity extends AppCompatActivity {
         shopMoreTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(OrderCompleteActivity.this, MainActivity.class);
+                startActivity(intent);
                 finish();
             }
         });

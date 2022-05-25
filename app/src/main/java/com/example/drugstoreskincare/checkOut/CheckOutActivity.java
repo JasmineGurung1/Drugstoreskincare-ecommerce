@@ -78,15 +78,14 @@ public class CheckOutActivity extends AppCompatActivity {
         allProductsRV = findViewById(R.id.allProductsRV);
         totalTV = findViewById(R.id.totalTV);
         subTotalTV = findViewById(R.id.subTotalTV);
-         shippingTV= findViewById(R.id.shippingTV);
-         totalPriceTv = findViewById(R.id.totalPriceTv);
-         discountTV = findViewById(R.id.discountTV);
+        shippingTV = findViewById(R.id.shippingTV);
+        totalPriceTv = findViewById(R.id.totalPriceTv);
+        discountTV = findViewById(R.id.discountTV);
         setClickListners();
         allProductResponse = (AllProductResponse) getIntent().getSerializableExtra(CHECK_OUT_PRODUCTS);
-        products =  allProductResponse.getProducts();
+        products = allProductResponse.getProducts();
         loadCartList();
     }
-
 
 
     private void setClickListners() {
@@ -152,9 +151,9 @@ public class CheckOutActivity extends AppCompatActivity {
     private void khaltiCheckOut() {
         Map<String, Object> map = new HashMap<>();
         map.put("merchant_extra", "This is extra data");
-        Config.Builder builder = new Config.Builder("test_public_key_fa284416f86845aa94430ab41c3e3dab", "" + products.get(0).getProductId(), products.get(0).getName(),(long) (subTotalPrice + shippingCharge) * 100, new OnCheckOutListener() {
+        Config.Builder builder = new Config.Builder("test_public_key_fa284416f86845aa94430ab41c3e3dab", "" + products.get(0).getProductId(), products.get(0).getName(), (long) (subTotalPrice + shippingCharge) * 100, new OnCheckOutListener() {
 
-//        Config.Builder builder = new DynamicsProcessing.Config.Builder("test_public_key_f4a5e7e35b7e4d25aabe8af42bff077c", "" + products.get(0).getProductId(), products.get(0).getName(), (long) (subTotalPrice + shippingCharge) * 100, new OnCheckOutListener() {
+            //        Config.Builder builder = new DynamicsProcessing.Config.Builder("test_public_key_f4a5e7e35b7e4d25aabe8af42bff077c", "" + products.get(0).getProductId(), products.get(0).getName(), (long) (subTotalPrice + shippingCharge) * 100, new OnCheckOutListener() {
             @Override
             public void onError(@NonNull String action, @NonNull Map<String, String> errorMap) {
                 Log.i(action, errorMap.toString());
@@ -165,7 +164,7 @@ public class CheckOutActivity extends AppCompatActivity {
             @Override
             public void onSuccess(@NonNull Map<String, Object> data) {
                 String key = SharedPrefUtils.getSting(CheckOutActivity.this, getString(R.string.api_key));
-                Call<RegisterResponse> orderCall = ApiClient.getClient().order(key, p_type, address.getId(),status, p_ref);
+                Call<RegisterResponse> orderCall = ApiClient.getClient().order(key, p_type, address.getId(), status, p_ref);
                 orderCall.enqueue(new Callback<RegisterResponse>() {
                     @Override
                     public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
@@ -204,7 +203,6 @@ public class CheckOutActivity extends AppCompatActivity {
     }
 
 
-
     private void loadCartList() {
         allProductsRV.setHasFixedSize(true);
         allProductsRV.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
@@ -238,28 +236,29 @@ public class CheckOutActivity extends AppCompatActivity {
 
     private void setPrice() {
         double discount = 0;
-        for (int i = 0; i < products.size(); i++){
+        double totalPrice = 0;
+        for (int i = 0; i < products.size(); i++) {
             if (products.get(i).getDiscountPrice() != 0 || products.get(i).getDiscountPrice() != null) {
-                subTotalPrice = subTotalPrice + products.get(i).getDiscountPrice();
+                subTotalPrice = subTotalPrice + products.get(i).getDiscountPrice() * products.get(i).getCartQuantity();
                 discount = discount + products.get(i).getPrice() - products.get(i).getDiscountPrice();
-            } else
-                subTotalPrice = subTotalPrice + products.get(i).getPrice();
+                totalPrice = subTotalPrice - discount;
+            } else {
+                subTotalPrice = subTotalPrice + products.get(i).getPrice() * products.get(i).getCartQuantity();
+                totalPrice = subTotalPrice;
+            }
         }
         subTotalTV.setText("Rs. " + (subTotalPrice));
-        totalTV.setText("Rs. " + (subTotalPrice + shippingCharge));
-        totalPriceTv.setText("( Rs. " + subTotalPrice + " )");
+        totalTV.setText("Rs. " + (totalPrice + shippingCharge));
+        totalPriceTv.setText("( Rs. " + (totalPrice + shippingCharge) + " )");
         shippingTV.setText("Rs. " + shippingCharge);
         discountTV.setText("-" + "Rs. " + discount);
 
-        }
-
-
-
+    }
 
 
     private void checkOut() {
         String key = SharedPrefUtils.getSting(this, getString(R.string.api_key));
-        Call<RegisterResponse> orderCall = ApiClient.getClient().order(key, p_type, address.getId(),status, p_ref);
+        Call<RegisterResponse> orderCall = ApiClient.getClient().order(key, p_type, address.getId(), status, p_ref);
         orderCall.enqueue(new Callback<RegisterResponse>() {
             @Override
             public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
@@ -267,7 +266,6 @@ public class CheckOutActivity extends AppCompatActivity {
                     Intent intent = new Intent(CheckOutActivity.this, OrderCompleteActivity.class);
                     startActivity(intent);
                     finish();
-
 
 
                 }

@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".Admin.addProduct.SelectCategoryActivity">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fullCatRVSC"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="25dp" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

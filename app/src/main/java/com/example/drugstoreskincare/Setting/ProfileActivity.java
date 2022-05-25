@@ -27,7 +27,7 @@ public class ProfileActivity extends AppCompatActivity {
     EditText fullnameET, emailET, bodET, phnnumberET;
     LinearLayout  changePasswordLL;
     ProgressDialog progress;
-    TextView editTV ;
+    TextView editTV, profileNameTV;
 
 
     @Override
@@ -41,9 +41,11 @@ public class ProfileActivity extends AppCompatActivity {
         phnnumberET = findViewById(R.id.phnnumberET);
         changePasswordLL = findViewById(R.id.changePasswordLL);
         editTV = findViewById(R.id.editTV);
+        profileNameTV = findViewById(R.id.profileNameTV);
 
         fullnameET.setText(SharedPrefUtils.getSting(this, getString(R.string.name_key)));
         emailET.setText(SharedPrefUtils.getSting(this, getString(R.string.email_id)));
+        profileNameTV.setText(SharedPrefUtils.getSting(this, getString(R.string.name_key)));
 //        bodET.setText(SharedPrefUtils.getString(this, getString(R.string.dateofbirth)));
 //        phnnumberET.setText(SharedPrefUtils.getString(this, getString(R.string.contact)));
 //        setOnClickListeners();

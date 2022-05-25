@@ -18,7 +18,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ChangePasswordActivity extends AppCompatActivity {
-    EditText newPasswordET,oldPasswordET, confirmPasswordET;
+    EditText newPasswordET, confirmPasswordET;
     TextView changeBtn;
 
 
@@ -28,13 +28,13 @@ public class ChangePasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_change_password);
 
         newPasswordET=findViewById(R.id.newPasswordET);
-        oldPasswordET = findViewById(R.id.oldPasswordET);
         confirmPasswordET = findViewById(R.id.confirmPasswordET);
         changeBtn = findViewById(R.id.changeBtn);
 
         changeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 updatePassword();
             }
 

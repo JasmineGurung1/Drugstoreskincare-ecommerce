@@ -26,6 +26,8 @@
     <string name="email_key" translatable="false">ek</string>
     <string name="name_key" translatable="false">nk</string>
     <string name="created_key" translatable="false">ck</string>
+    <string name="phoneNumber" translatable="false">pn</string>
+    <string name="DateOfBirth" translatable="false">dob</string>
     <string name="category">Category</string>
     <string name="categories">Categories</string>
 

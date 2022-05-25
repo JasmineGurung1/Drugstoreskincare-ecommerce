@@ -181,18 +181,10 @@ public class HomeFragment extends Fragment {
     }
 
     private void showCategories(List<Category> categories) {
-        List<Category> temp;
-        if (categories.size() > 8) {
-            temp = new ArrayList<>();
-            for (int i = 0; i < 8; i++) {
-                temp.add(categories.get(categories.size() - i - 1));
-            }
-        } else {
-            temp = categories;
-        }
+
         categoryRV.setHasFixedSize(true);
         categoryRV.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-        CategoryAdapter categoryAdapter = new CategoryAdapter(temp,getContext(), true, false, null);
+        CategoryAdapter categoryAdapter = new CategoryAdapter(categories,getContext(), true, false, null);
         categoryRV.setAdapter(categoryAdapter);
     }
 

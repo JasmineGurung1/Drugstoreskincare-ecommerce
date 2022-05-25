@@ -25,7 +25,6 @@
             app:sliderIndicatorGravity="center_horizontal|bottom"
             app:sliderIndicatorMargin="15dp"
             app:sliderIndicatorOrientation="horizontal"
-            app:sliderIndicatorPadding="3dp"
             app:sliderIndicatorRadius="2dp"
             app:sliderIndicatorSelectedColor="@color/Light_pinK"
             app:sliderIndicatorUnselectedColor="#FFF" />
@@ -86,7 +85,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/productPriceTV"
+                            android:id="@+id/discountPriceTV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Rs. 1000"

@@ -41,7 +41,7 @@
                 android:layout_weight="1"
                 android:text="Ordinary Niacinamide"
                 android:textColor="@color/Light_pinK"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <ImageView

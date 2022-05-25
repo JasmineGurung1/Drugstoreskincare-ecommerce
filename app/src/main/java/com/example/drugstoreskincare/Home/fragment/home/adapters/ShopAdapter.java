@@ -77,6 +77,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
                 }
             });
             if (isCart) {
+                holder.quantityIV.setText(productDataList.get(position).getCartQuantity()+"");
                 if (removeEnabled)
                     holder.removeCartIV.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -114,8 +115,8 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
 
     public class ShopViewHolder extends RecyclerView.ViewHolder {
         ImageView productIV, removeCartIV;
-        TextView nameTV, PriceTV, discountPriceTV, discountPrice;
-        LinearLayout mainLL, quantityIV;
+        TextView nameTV, PriceTV, discountPrice, quantityIV;
+        LinearLayout mainLL;
 
         public ShopViewHolder(View itemView) {
             super(itemView);
@@ -126,7 +127,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
             mainLL = itemView.findViewById(R.id.mainLL);
             if (isCart)
                 removeCartIV = itemView.findViewById(R.id.removeCartIV);
-            quantityIV = itemView.findViewById(R.id.quantityLL);
+                  quantityIV = itemView.findViewById(R.id.quantityTV);
 
         }
 

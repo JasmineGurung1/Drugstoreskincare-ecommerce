@@ -30,7 +30,7 @@ public class SelectCategoryActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("All Categories");
-        //fullCatRV = findViewById(R.id.fullCatRV);
+        fullCatRV = findViewById(R.id.fullCatRVSC);
         getOnline();
     }
 

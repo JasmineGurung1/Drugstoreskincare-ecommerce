@@ -31,7 +31,11 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("/ecommerce/api/v1/register")
-    Call<RegisterResponse> register(@Field("name") String names, @Field("email") String email, @Field("password") String password);
+    Call<RegisterResponse> register(@Field("name") String names,
+                                    @Field("email") String email,
+                                    @Field("password") String password,
+                                    @Field("DateOfBirth") String DateOfBirth,
+                                    @Field("phonenumber") String PhoneNumber);
 
 
     @FormUrlEncoded
@@ -140,14 +144,14 @@ public interface ApiService {
                                  @Field("payment_refrence") String paymentRefrence);
 
     @FormUrlEncoded
-    @POST("api/v1/forget-password")
+    @POST("ecommerce/api/v1/update-password")
     Call<RegisterResponse> forgotpassword(@Header("api_key") String apikey, @Field("password") String password);
 
 //    Call<RegisterResponse> updateProfile(String key, String names, String email, String dateofbirth, String contact);
 
 
     @FormUrlEncoded
-    @POST("/api/v1/updateProfile")
+    @POST("ecommerce/api/v1/updateProfile")
     Call<RegisterResponse> updateProfile(@Header("api_key") String apikey,
                                          @Field("name") String names,
                                          @Field("email") String email,

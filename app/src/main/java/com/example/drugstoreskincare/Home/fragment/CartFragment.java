@@ -165,9 +165,9 @@ public class CartFragment extends Fragment {
         double totalPrice = 0;
         for (int i = 0; i < products.size(); i++) {
             if (products.get(i).getDiscountPrice() != 0 || products.get(i).getDiscountPrice() != null)
-                totalPrice = totalPrice + products.get(i).getDiscountPrice();
+                totalPrice = totalPrice + products.get(i).getDiscountPrice() * products.get(i).getCartQuantity();
             else
-                totalPrice = totalPrice + products.get(i).getPrice();
+                totalPrice = totalPrice + products.get(i).getPrice() * products.get(i).getCartQuantity();
         }
         totalPriceTv.setText("( Rs. " + totalPrice + " )");
 

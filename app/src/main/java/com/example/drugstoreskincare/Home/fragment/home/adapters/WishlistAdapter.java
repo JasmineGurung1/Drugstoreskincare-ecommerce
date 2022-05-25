@@ -67,7 +67,7 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
             public void onClick(View view) {
                 Intent productPage = new Intent(context, SingleProductActivity.class);
                 System.out.println(productDataList.get(holder.getAdapterPosition()).getImages());
-                productPage.putExtra(SingleProductActivity.SINGLE_DATA_KEY, productDataList.get(holder.getAdapterPosition()));
+                productPage.putExtra(SingleProductActivity.key, productDataList.get(holder.getAdapterPosition()));
                 context.startActivity(productPage);
 
             }

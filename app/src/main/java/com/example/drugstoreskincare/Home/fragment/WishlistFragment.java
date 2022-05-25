@@ -79,7 +79,6 @@ public class WishlistFragment extends Fragment {
                             showEmptyLayout();
                         } else {
                             emptyWishlistIV.setVisibility(View.GONE);
-                            allProductResponse = response.body();
                             products = response.body().getProducts();
                             loadWishList();
                         }
@@ -99,6 +98,7 @@ public class WishlistFragment extends Fragment {
     private void showEmptyLayout() {
         emptyWishlistIV.setVisibility(View.VISIBLE);
     }
+
 
 
     private void loadWishList() {

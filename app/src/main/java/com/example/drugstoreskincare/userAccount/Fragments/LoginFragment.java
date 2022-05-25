@@ -7,7 +7,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -31,6 +34,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     EditText emailEt, passwordET;
     Button loginBtn;
     ProgressBar circularProgress;
+    boolean passwordVisible;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,7 +51,35 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         loginBtn = view.findViewById(R.id.loginLL);
         circularProgress = view.findViewById(R.id.circularProgress);
         loginBtn.setOnClickListener(this);
+        passwordET.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                final int Right=2;
+                if(motionEvent.getAction()==MotionEvent.ACTION_UP){
+                    if(motionEvent.getRawX()>=passwordET.getRight()-passwordET.getCompoundDrawables()[Right].getBounds().width()){
+                        int selection=passwordET.getSelectionEnd();
+                        if(passwordVisible) {
+                            //set drawable image here
+                            passwordET.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_visibility, 0);
+                            //for password hide
+                            passwordET.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                            passwordVisible=false;
 
+                        }else {
+                            //set drawable image here
+                            passwordET.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_eye, 0);
+                            //for password show
+                            passwordET.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                            passwordVisible=true;
+
+                        }
+                        passwordET.setSelection(selection);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
     }
 
     public void toggleProgress (Boolean toggle){

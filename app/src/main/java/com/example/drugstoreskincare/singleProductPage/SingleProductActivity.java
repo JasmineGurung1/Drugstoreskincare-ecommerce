@@ -53,7 +53,7 @@ public class SingleProductActivity extends AppCompatActivity {
         backIV = findViewById(R.id.backIV);
         imageSlider = findViewById(R.id.imageSlider);
         name = findViewById(R.id.productNameTV);
-        price = findViewById(R.id.productPriceTV);
+        price = findViewById(R.id.discountPriceTV);
         quantityTV = findViewById(R.id.quantityTV);
         oldPrice = findViewById(R.id.OldPriceTV);
         addToCartLL = findViewById(R.id.addToCartLL);
@@ -67,6 +67,11 @@ public class SingleProductActivity extends AppCompatActivity {
             product = (Product) getIntent().getSerializableExtra(key);
             setProduct(product);
         }
+
+//        else if (getIntent().getSerializableExtra(SINGLE_DATA_KEY) != null) {
+//            product = (Product) getIntent().getSerializableExtra(key);
+//            setProduct(product);
+//        }
 
         System.out.println(product.getProductId());
     }
@@ -146,7 +151,10 @@ public class SingleProductActivity extends AppCompatActivity {
                     public void onResponse(Call<AllProductResponse> call, Response<AllProductResponse> response) {
                         if (response.isSuccessful()) {
                             if (!response.body().getError()) {
-                                Toast.makeText(SingleProductActivity.this, "Added to Cart", Toast.LENGTH_SHORT).show();
+                                if (response.body().getMessage() == "Already on Cart") {
+                                    Toast.makeText(SingleProductActivity.this, "Already on Cart", Toast.LENGTH_SHORT).show();
+                                } else
+                                    Toast.makeText(SingleProductActivity.this, "Added to Cart", Toast.LENGTH_SHORT).show();
                             }
                         }
                         addingToggle(false);
@@ -166,17 +174,22 @@ public class SingleProductActivity extends AppCompatActivity {
             }
         });
         //adding item to wishlist
-        addwishlisttLL.setOnClickListener(v ->{
-            if (!isAdding){
+        addwishlisttLL.setOnClickListener(v -> {
+            if (!isAdding) {
                 isAdding = true;
-                String apikey = SharedPrefUtils.getSting(this,getString(R.string.api_key));
-                Call<AllProductResponse> wishlistCall = ApiClient.getClient().addtowishlist(apikey,product.getProductId());
+                String apikey = SharedPrefUtils.getSting(this, getString(R.string.api_key));
+                Call<AllProductResponse> wishlistCall = ApiClient.getClient().addtowishlist(apikey, product.getProductId());
                 wishlistCall.enqueue(new Callback<AllProductResponse>() {
                     @Override
                     public void onResponse(Call<AllProductResponse> call, Response<AllProductResponse> response) {
-                        if (response.isSuccessful()){
-                            if (!response.body().getError()){
-                                Toast.makeText(SingleProductActivity.this, "Added to Wishlist", Toast.LENGTH_SHORT).show();
+                        if (response.isSuccessful()) {
+                            if (!response.body().getError()) {
+                                if (response.code() == 201){
+                                    Toast.makeText(SingleProductActivity.this, "Added to Wishlist", Toast.LENGTH_SHORT).show();
+                                }else if(response.code() == 200){
+                                    Toast.makeText(SingleProductActivity.this, "Already on Wishlist", Toast.LENGTH_SHORT).show();
+                                }
+
                             }
                         }
                         isAdding = false;
